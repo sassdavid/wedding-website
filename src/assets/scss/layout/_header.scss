@@ -56,7 +56,14 @@
 
 			.icon {
 				&:before {
-					font-size: 2rem;
+					size: 70px;
+				}
+			}
+			.bio-avatar {
+				&:before {
+				    width: 70px;
+				    height: 70px;
+				    border-radius: 100%;
 				}
 			}
 		}
@@ -203,11 +210,19 @@
 
 				.icon {
 					&:before {
-						font-size: 1.75rem;
+						font-size: 3.75rem;
+					}
+				}
+
+				.bio-avatar {
+					&:before {
+					    width: 3.75rem;
+					    height: 3.75rem;
+					    border-radius: 100%;
 					}
 				}
 			}
-
+			
 			.content {
 				.inner {
 					padding: 2.5rem 1rem;

@@ -1,9 +1,9 @@
 import React from 'react'
 import Layout from '../components/layout'
-
 import Header from '../components/Header'
 import Main from '../components/Main'
 import Footer from '../components/Footer'
+import { StaticImage } from 'gatsby-plugin-image'
 
 class IndexPage extends React.Component {
   constructor(props) {
@@ -105,7 +105,14 @@ class IndexPage extends React.Component {
             />
             <Footer timeout={this.state.timeout} />
           </div>
-          <div id="bg"></div>
+          <div id="bg">
+            <StaticImage
+              id="bg"
+              formats={["auto", "webp"]}
+              src="../../static/assets/bg.jpg"
+              alt="Dimensions Image" 
+            />
+          </div>
         </div>
       </Layout>
     )
