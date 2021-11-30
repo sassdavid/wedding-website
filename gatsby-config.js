@@ -7,7 +7,8 @@ module.exports = {
     description: "A Gatsby.js V4 Starter based on Dimension by HTML5 UP"
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
