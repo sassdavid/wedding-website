@@ -8,7 +8,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -40,34 +39,6 @@ module.exports = {
         theme_color: '#663399',
         display: 'minimal-ui',
         icon: 'static/assets/gatsby-icon.png', // This path is relative to the root of the site.
-      },
-    },
-    {
-      resolve: `gatsby-plugin-gatsby-cloud`,
-      options: {
-        headers: {
-          "/*": [
-            "Cache-Control: public, max-age=31536000, immutable",
-          ],
-          "/static/*": [
-            "Cache-Control: public, max-age=31536000, immutable",
-          ],
-        }, // option to add more headers. `Link` headers are transformed by the below criteria
-        allPageHeaders: [
-          "Strict-Transport-Security: max-age=31536000; preload",
-          "X-Robots-Tag: index",
-          "X-Frame-Options: DENY",
-          "X-XSS-Protection: 1; mode=block",
-          "X-Content-Type-Options: nosniff",
-          "Referrer-Policy: same-origin",
-          "Access-Control-Allow-Origin: https://gatsbystarterdimensionv4.gatsbyjs.io/",
-          "Access-Control-Allow-Methods: POST; GET; PUT; DELETE; HEAD",
-        ], // option to add headers for all pages. `Link` headers are transformed by the below criteria
-        mergeSecurityHeaders: true, // boolean to turn off the default security headers
-        mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers
-        mergeCachingHeaders: true, // boolean to turn off the default caching headers
-        transformHeaders: (headers, path) => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
-        generateMatchPathRewrites: true, // boolean to turn off automatic creation of redirect rules for client only paths
       },
     },
     {
