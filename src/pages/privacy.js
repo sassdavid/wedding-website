@@ -44,8 +44,8 @@ const Privacy = () => (
 
            <h2>Cookies And Beacons</h2>
 
-           <p>🍪 When you visit this site "convenience" cookies are stored on your computer when you submit a comment to help you log in faster to</p>
-           <p> 🔗 \* <Link to="https://twitter.com/donboulton" alt="Twitter">Twitter</Link> the next time you tweet.</p>             
+           <p>🍪 When you visit this site "convenience" cookies are stored on your computer when you submit a comment to help you log in faster to 
+             🔗 \* <Link to="https://twitter.com/donboulton" alt="Twitter">Twitter</Link> the next time you tweet.</p>             
         </p>
         <Link to="/" className="button">
           <RiArrowLeftSLine className="button-icon"

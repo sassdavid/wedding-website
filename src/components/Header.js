@@ -15,8 +15,8 @@ const Header = (props) => (
                 A fully responsive site template designed by{' '}
                <a href="https://donboulton.com">Don Boulton</a> and released
                 <br />
-                for free under the{' '}
-                <a href="https://html5up.net/license">Creative Commons</a> license.
+                for free under a{' '}
+                <a href="https://donboulton.com/privacy">BSD</a> license.
               </p>
             </div>
         </div>
