@@ -10,7 +10,7 @@
 <br/>
 Gatsby.js V2 starter based on the Dimension site template, designed by HTML5 UP. Check out https://codebushi.com/gatsby-starters/ for more Gatsby starters and templates.
 
-> **Update** [Dimensions is Hosted on Gatsby Cloud](https://gatsbystarterdimensionsv4.gatsbyjs.io/) is now built with Gatsby V4 "4.2.0", this includes many performance updates with Latest Gatsby!
+> **Update** [Dimensions is Hosted on Gatsby Cloud](https://gatsbystarterdimensionsv4.gatsbyjs.io/) is now built with Gatsby V4 "4.3.0", this includes many performance updates with Latest Gatsby!
 
 [![npm version](https://badge.fury.io/js/gatsby.svg)](https://badge.fury.io/js/gatsby) 
 
