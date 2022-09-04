@@ -12,7 +12,7 @@ Gatsby.js V2 starter based on the Dimension site template, designed by HTML5 UP.
 
 > **Update** [Dimensions is Hosted on Gatsby Cloud](https://gatsbystarterdimensionsv4.gatsbyjs.io/) is now built with Gatsby V4 "4.3.0", this includes many performance updates with Latest Gatsby!
 
-[![npm version](https://badge.fury.io/js/gatsby.svg)](https://badge.fury.io/js/gatsby) 
+[![npm version](https://badge.fury.io/js/gatsby.svg)](https://badge.fury.io/js/gatsby)
 
 gatsby-plugin-image With the Plugins proper usage.
 
@@ -107,4 +107,3 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 [Build, Deploy, and Host On The Only Cloud Built For Gatsby](https://www.gatsbyjs.com/products/cloud/)
 
 Gatsby Cloud is an end-to-end cloud platform specifically built for the Gatsby framework that combines a modern developer experience with an optimized, global edge network.
-
