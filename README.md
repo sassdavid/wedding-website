@@ -1,6 +1,6 @@
 # gatsby-starter-dimension-v4
 
-**This is a starter for Gatsby.js V4.11.0**
+**This is a starter for Gatsby.js V5.24.2**
 
 **The oldest V1 version of this starter can be found at:**
 <br/>
@@ -10,7 +10,7 @@
 <br/>
 Gatsby.js V2 starter based on the Dimension site template, designed by HTML5 UP. Check out https://codebushi.com/gatsby-starters/ for more Gatsby starters and templates.
 
-> **Update** [Dimensions is Hosted on Gatsby Cloud](https://gatsbystarterdimensionsv4.gatsbyjs.io/) is now built with Gatsby V4 "4.3.0", this includes many performance updates with Latest Gatsby!
+> **Update** [Dimensions is Hosted on Gatsby Cloud](https://gatsbystarterdimensionsv4.gatsbyjs.io/) is now built with Gatsby V4 "5.4.2", this includes many performance updates with Latest Gatsby!
 
 [![npm version](https://badge.fury.io/js/gatsby.svg)](https://badge.fury.io/js/gatsby)
 

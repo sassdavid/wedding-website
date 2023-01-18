@@ -14,6 +14,8 @@ module.exports = {
         name: `assets`,
       },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
@@ -26,8 +28,6 @@ module.exports = {
         },
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -76,7 +76,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-offline',
       options: {
-        precachePages: ['/', '/privacy'],
+        precachePages: ['/*', '/privacy'],
         workboxConfig: {
           importWorkboxFrom: 'cdn',
         },
