@@ -1,4 +1,6 @@
-module.exports = {
+import type { GatsbyConfig } from 'gatsby'
+
+const config: GatsbyConfig = {
   siteMetadata: {
     title: 'Donald Boulton - Dimension V4',
     author: 'Donald Boulton',
@@ -84,3 +86,4 @@ module.exports = {
     },
   ],
 }
+export default config
