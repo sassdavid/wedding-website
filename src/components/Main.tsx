@@ -1,22 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
-import { StaticImage } from 'gatsby-plugin-image'
-import { RiFacebookBoxFill } from '@react-icons/all-files/ri/RiFacebookBoxFill'
-import { RiTwitterFill } from '@react-icons/all-files/ri/RiTwitterFill'
-import { RiInstagramFill } from '@react-icons/all-files/ri/RiInstagramFill'
-import { RiGithubFill } from '@react-icons/all-files/ri/RiGithubFill'
-import { RiYoutubeFill } from '@react-icons/all-files/ri/RiYoutubeFill'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { StaticImage } from 'gatsby-plugin-image';
 
 const Main = props => {
   const close = (
     <div
       className="close"
       onClick={() => {
-        props.onCloseArticle()
+        props.onCloseArticle();
       }}
     ></div>
-  )
+  );
 
   return (
     <div ref={props.setWrapperRef} id="main" style={props.timeout ? { display: 'flex' } : { display: 'none' }}>
@@ -25,13 +19,9 @@ const Main = props => {
         className={`${props.article === 'intro' ? 'active' : ''} ${props.articleTimeout ? 'timeout' : ''}`}
         style={{ display: 'none' }}
       >
-        <Link to="https://bibwoe.com" rel="noopener noreferrer" target="_blank" area-label="Bibwoe">
-          <h2 className="major">Intro</h2>
-        </Link>
+        <h2 className="major">Intro</h2>
         <span className="image main">
-          <Link to="https://bibwoe.com" rel="noopener noreferrer" target="_blank" area-label="Bibwoe">
             <StaticImage formats={['auto', 'webp']} src="../../static/assets/pic01.jpg" alt="Intro" />
-          </Link>
         </span>
         <p>
           Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue.
@@ -55,13 +45,9 @@ const Main = props => {
         className={`${props.article === 'work' ? 'active' : ''} ${props.articleTimeout ? 'timeout' : ''}`}
         style={{ display: 'none' }}
       >
-        <Link to="https://mansbooks.com" rel="noopener noreferrer" target="_blank" area-label="Mansbooks">
-          <h2 className="major">Work</h2>
-        </Link>
+        <h2 className="major">Work</h2>
         <span className="image main">
-          <Link to="https://mansbooks.com" rel="noopener noreferrer" target="_blank" area-label="Mansbooks">
             <StaticImage formats={['auto', 'webp']} src="../../static/assets/pic02.jpg" alt="Work" />
-          </Link>
         </span>
         <p>
           Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam
@@ -82,13 +68,9 @@ const Main = props => {
         className={`${props.article === 'about' ? 'active' : ''} ${props.articleTimeout ? 'timeout' : ''}`}
         style={{ display: 'none' }}
       >
-        <Link to="https://publiuslogic.com" rel="noopener noreferrer" target="_blank" area-label="PubliusLogic">
-          <h2 className="major">About</h2>
-        </Link>
+        <h2 className="major">About</h2>
         <span className="image main">
-          <Link to="https://publiuslogic.com" rel="noopener noreferrer" target="_blank" area-label="PubliusLogic">
             <StaticImage formats={['auto', 'webp']} src="../../static/assets/pic03.jpg" alt="About" />
-          </Link>
         </span>
         <p>
           Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend
@@ -135,103 +117,11 @@ const Main = props => {
             </li>
           </ul>
         </form>
-        <ul className="icons">
-          <li>
-            <Link
-              to="https://twitter.com/donboulton"
-              className="icon"
-              rel="noopener noreferrer"
-              target="_blank"
-              area-label="Bibwoe"
-            >
-              <RiTwitterFill
-                alt="Twitter"
-                style={{
-                  fontSize: '2rem',
-                  color: 'gray',
-                }}
-              />
-              <span className="label">Twitter</span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="https://facebook.com/donboulton"
-              className="icon"
-              rel="noopener noreferrer"
-              target="_blank"
-              area-label="Bibwoe"
-            >
-              <RiFacebookBoxFill
-                alt="Facebook"
-                style={{
-                  fontSize: '2em',
-                  color: 'gray',
-                }}
-              />
-              <span className="label">Facebook</span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="https://www.instagram.com/boulton3662/"
-              className="icon"
-              rel="noopener noreferrer"
-              target="_blank"
-              area-label="Bibwoe"
-            >
-              <RiInstagramFill
-                alt="Instagram"
-                style={{
-                  fontSize: '2em',
-                  color: 'gray',
-                }}
-              />
-              <span className="label">Instagram</span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="https://gihub.com/donaldboulton/donboulton.com"
-              className="icon"
-              rel="noopener noreferrer"
-              target="_blank"
-              area-label="Bibwoe"
-            >
-              <RiGithubFill
-                alt="Github"
-                style={{
-                  fontSize: '2em',
-                  color: 'gray',
-                }}
-              />
-              <span className="label">GitHub</span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="https://youtube.com/donboulton/"
-              className="icon"
-              rel="noopener noreferrer"
-              target="_blank"
-              area-label="Bibwoe"
-            >
-              <RiYoutubeFill
-                alt="Youtube"
-                style={{
-                  fontSize: '2em',
-                  color: 'gray',
-                }}
-              />
-              <span className="label">Youtube</span>
-            </Link>
-          </li>
-        </ul>
         {close}
       </article>
     </div>
-  )
-}
+  );
+};
 
 Main.propTypes = {
   route: PropTypes.object,
@@ -240,6 +130,6 @@ Main.propTypes = {
   onCloseArticle: PropTypes.func,
   timeout: PropTypes.bool,
   setWrapperRef: PropTypes.func.isRequired,
-}
+};
 
-export default Main
+export default Main;

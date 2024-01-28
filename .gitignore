@@ -1,8 +1,8 @@
+# intellij
+.idea
 # Project dependencies
 .cache
 node_modules
-yarn-error.log
-package-lock.json
 .env.production
 .env.development
 .env

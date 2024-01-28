@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { StaticImage } from 'gatsby-plugin-image'
+import * as React from 'react';
+import { StaticImage } from 'gatsby-plugin-image';
 
 const Bio = () => {
   return (
@@ -13,7 +13,7 @@ const Bio = () => {
         alt="Profile Picture"
       />
     </div>
-  )
-}
+  );
+};
 
-export default Bio
+export default Bio;

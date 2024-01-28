@@ -1,6 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Bio from './bio'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Bio from './bio';
 
 const Header = props => (
   <header id="header" style={props.timeout ? { display: 'none' } : {}}>
@@ -20,53 +20,49 @@ const Header = props => (
     <nav>
       <ul>
         <li>
-          <a
-            href="javascript:;"
+          <button
             onClick={() => {
-              props.onOpenArticle('intro')
+              props.onOpenArticle('intro');
             }}
           >
             Intro
-          </a>
+          </button>
         </li>
         <li>
-          <a
-            href="javascript:;"
+          <button
             onClick={() => {
-              props.onOpenArticle('work')
+              props.onOpenArticle('work');
             }}
           >
             Work
-          </a>
+          </button>
         </li>
         <li>
-          <a
-            href="javascript:;"
+          <button
             onClick={() => {
-              props.onOpenArticle('about')
+              props.onOpenArticle('about');
             }}
           >
             About
-          </a>
+          </button>
         </li>
         <li>
-          <a
-            href="javascript:;"
+          <button
             onClick={() => {
-              props.onOpenArticle('contact')
+              props.onOpenArticle('contact');
             }}
           >
             Contact
-          </a>
+          </button>
         </li>
       </ul>
     </nav>
   </header>
-)
+);
 
 Header.propTypes = {
   onOpenArticle: PropTypes.func,
   timeout: PropTypes.bool,
-}
+};
 
-export default Header
+export default Header;

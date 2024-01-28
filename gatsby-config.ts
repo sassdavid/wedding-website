@@ -1,12 +1,13 @@
-import type { GatsbyConfig } from 'gatsby'
+import type { GatsbyConfig } from 'gatsby';
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: 'Donald Boulton - Dimension V4',
-    author: 'Donald Boulton',
-    siteUrl: 'https://donboulton.com',
+    title: 'Bianka & David',
+    author: 'David Sass',
+    siteUrl: 'https://biankaesdavid.hu',
     siteImage: '/static/assets/bg.jpg',
-    description: 'A Gatsby.js V4 Starter based on Dimension by HTML5 UP',
+    description: 'A wedding website where you can find all the details about the big day',
+    keywords: 'gatsby, wedding site',
   },
   plugins: [
     {
@@ -30,11 +31,12 @@ const config: GatsbyConfig = {
         },
       },
     },
+    'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'dimension-v4',
-        short_name: 'Gatsby Starter',
+        name: 'Bianka & David',
+        short_name: 'Bianka & David',
         start_url: '/',
         background_color: '#663399',
         theme_color: '#663399',
@@ -46,22 +48,22 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
         googleAnalytics: {
-          trackingId: 'UA-000000-2', // leave empty if you want to disable the tracker
+          trackingId: '', // leave empty if you want to disable the tracker
           cookieName: 'gatsby-gdpr-google-analytics', // default
           anonymize: true, // default
           allowAdFeatures: false, // default
         },
         googleTagManager: {
-          trackingId: 'GTM-00000000', // leave empty if you want to disable the tracker
+          trackingId: '', // leave empty if you want to disable the tracker
           cookieName: 'gatsby-gdpr-google-tagmanager', // default
           dataLayerName: 'dataLayer', // default
         },
         facebookPixel: {
-          pixelId: 'YOUR_FACEBOOK_PIXEL_ID', // leave empty if you want to disable the tracker
+          pixelId: '', // leave empty if you want to disable the tracker
           cookieName: 'gatsby-gdpr-facebook-pixel', // default
         },
         tikTokPixel: {
-          pixelId: 'YOUR_TIKTOK_PIXEL_ID', // leave empty if you want to disable the tracker
+          pixelId: '', // leave empty if you want to disable the tracker
           cookieName: 'gatsby-gdpr-tiktok-pixel', // default
         },
         hotjar: {
@@ -85,5 +87,5 @@ const config: GatsbyConfig = {
       },
     },
   ],
-}
-export default config
+};
+export default config;
