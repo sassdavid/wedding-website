@@ -7,7 +7,7 @@ const config: GatsbyConfig = {
     siteUrl: 'https://biankaesdavid.hu',
     siteImage: '/static/assets/bg.jpg',
     description: 'A wedding website where you can find all the details about the big day',
-    keywords: 'gatsby, wedding site',
+    keywords: 'gatsby, wedding website, wedding invitation',
   },
   plugins: [
     {
