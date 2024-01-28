@@ -22,7 +22,7 @@ const Layout = ({ children, location }) => {
 
   let content;
 
-  if (location && location.pathname === '/') {
+  if ( location && location.pathname === '/' ) {
     content = <div>{children}</div>;
   } else {
     content = (
@@ -39,8 +39,7 @@ const Layout = ({ children, location }) => {
         meta={[
           { name: 'description', content: data.site.siteMetadata.description },
           { name: 'keywords', content: data.site.siteMetadata.keywords },
-        ]}
-      >
+        ]}>
         <html lang="en" />
       </Helmet>
       {content}
@@ -62,23 +61,19 @@ const Layout = ({ children, location }) => {
           borderRadius: '3px',
           border: '1px black',
           textShadow: '2px 2px black',
-        }}
-      >
+        }}>
         Don Boulton uses cookies for a better user experience.{' '}
         <span
           style={{
             fontSize: '14px',
             textAlign: 'center',
             marginLeft: '20px',
-          }}
-        >
+          }}>
               <span className="icon -lock">
                 <SiGnuprivacyguard />
               </span>{' '}
-          <Link to="https://publiuslogic.com/privacy" alt="Privacy Page">
-                Privacy Page
-              </Link>
-            </span>
+          <Link to="https://publiuslogic.com/privacy" alt="Privacy Page">Privacy Page</Link>
+        </span>
       </CookieConsent>
     </>
   );
