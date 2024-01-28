@@ -9,7 +9,7 @@ const Header = props => (
     </div>
     <div className="content">
       <div className="inner">
-        <h1>Dimension V4</h1>
+        <h1>Bianka & Dávid</h1>
         <p>
           A fully responsive site template designed by <a href="https://donboulton.com">Don Boulton</a> and released
           <br />
@@ -20,38 +20,30 @@ const Header = props => (
     <nav>
       <ul>
         <li>
-          <button
-            onClick={() => {
-              props.onOpenArticle('intro');
-            }}
-          >
+          <button onClick={() => {
+            props.onOpenArticle('intro');
+          }}>
             Intro
           </button>
         </li>
         <li>
-          <button
-            onClick={() => {
-              props.onOpenArticle('work');
-            }}
-          >
+          <button onClick={() => {
+            props.onOpenArticle('work');
+          }}>
             Work
           </button>
         </li>
         <li>
-          <button
-            onClick={() => {
-              props.onOpenArticle('about');
-            }}
-          >
+          <button onClick={() => {
+            props.onOpenArticle('about');
+          }}>
             About
           </button>
         </li>
         <li>
-          <button
-            onClick={() => {
-              props.onOpenArticle('contact');
-            }}
-          >
+          <button onClick={() => {
+            props.onOpenArticle('contact');
+          }}>
             Contact
           </button>
         </li>

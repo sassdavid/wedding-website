@@ -22,11 +22,12 @@ const Footer = props => (
           style={{
             lineHeight: 'inherit',
             fontSize: '0.8rem',
-            color: 'gray',
+            color: 'yellow',
           }}
         />
       </span>{' '}
-      <a href="/privacy">Privacy</a> Built with: <a href="https://www.gatsbyjs.org/">Gatsby.js v5.4.2</a>
+      <a href="/privacy">Privacy</a> Built with: <a href="https://www.gatsbyjs.org/" target="_blank"
+                                                    rel="noopener noreferrer nofollow">Gatsby.js v5.13.3</a>
     </p>
   </footer>
 );
