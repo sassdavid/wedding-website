@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { navigate } from 'gatsby';
 import Card from '@/components/Card';
+import CryptoJS from 'crypto-js';
+import ErrorMessage from '@/cards/ErrorMessage';
 
 const Rsvp = (props) => {
   const [formData, setFormData] = useState({
@@ -9,8 +11,26 @@ const Rsvp = (props) => {
                                              email: '',
                                              attending: '',
                                              guests: 1,
+                                             passphrase: '',
                                            });
   const [errors, setErrors] = useState({});
+
+  const formRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if ( formRef.current && !formRef.current.contains(event.target) ) {
+        resetFormAndErrors();
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [formRef]);
+
+  const secretHash = '13df49eeb1f666dbdc7242d3137a327ce9ff84b8d9a348d20e1c67eae4befb9cb86e4af0722c0ce61c37dc550c1fa9bec92a665af4d42dcdd3bab582c2c76e0a';
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,15 +43,19 @@ const Rsvp = (props) => {
   const validateForm = () => {
     let newErrors = {};
     if ( !formData.name ) {
-      newErrors['name'] = 'Name is required.';
+      newErrors['name'] = 'A név kitöltése kötelező.';
     }
     if ( !formData.email ) {
-      newErrors['email'] = 'Email is required.';
+      newErrors['email'] = 'Az email kitöltése kötelező.';
     } else if ( !/\S+@\S+\.\S+/.test(formData.email) ) {
-      newErrors['email'] = 'Email is invalid.';
+      newErrors['email'] = 'Email cím nem megfelelő.';
     }
     if ( !formData.attending ) {
-      newErrors['attending'] = 'Please indicate if you will be attending.';
+      newErrors['attending'] = 'Kérjek jelöld, hogy részt veszel-e az eksüvőn.';
+    }
+    const hashedPassphrase = CryptoJS.SHA3(formData.passphrase, { outputLength: 512 }).toString();
+    if ( hashedPassphrase !== secretHash ) {
+      newErrors['passphrase'] = 'Hibás jelszó.';
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -47,7 +71,6 @@ const Rsvp = (props) => {
       console.log(body);
       const response = { ok: 'true' };
       if ( response.ok ) {
-        console.log('Form submitted successfully');
         // noinspection ES6MissingAwait
         navigate('/thanks');
       } else {
@@ -64,6 +87,7 @@ const Rsvp = (props) => {
                   email: '',
                   attending: '',
                   guests: 1,
+                  passphrase: '',
                 });
     setErrors({});
   };
@@ -74,6 +98,7 @@ const Rsvp = (props) => {
                   email: '',
                   attending: '',
                   guests: 1,
+                  passphrase: '',
                 });
     setErrors({});
 
@@ -82,49 +107,52 @@ const Rsvp = (props) => {
 
   return (
     <Card id="rsvp" style={props.style} onCloseArticle={handleCloseArticle} articleClassName={props.articleClassName}>
-    <h2 className="major">RSVP Form</h2>
-    <form className="rsvp-form" onSubmit={handleSubmit} name="rsvp" noValidate>
-      <div className="field half first">
-        <label htmlFor="name">Name</label>
-        <input type="text" name="name" id="name" value={formData.name} onChange={handleChange} required />
-        {errors['name'] && <p className="error">{errors['name']}</p>}
+      <div ref={formRef}>
+        <h2 className="major">RSVP Form</h2>
+        <form className="rsvp-form" onSubmit={handleSubmit} name="rsvp" noValidate>
+          <div className="field">
+            <label htmlFor="passphrase">Meghívási kulcs</label>
+            <input type="text" name="passphrase" id="passphrase" value={formData.passphrase} onChange={handleChange}
+                   placeholder="Add meg a kapott meghívási kulcsot!" required />
+            <ErrorMessage message={errors['passphrase']} />
+          </div>
+          <div className="field half first">
+            <label htmlFor="name">Név</label>
+            <input type="text" name="name" id="name" value={formData.name} onChange={handleChange} required />
+            <ErrorMessage message={errors['name']} />
+          </div>
+          <div className="field half">
+            <label htmlFor="email">Email</label>
+            <input type="email" name="email" id="email" value={formData.email} onChange={handleChange} required />
+            <ErrorMessage message={errors['email']} />
+          </div>
+          <div className="field half first">
+            <label htmlFor="attending">Részt veszel az esküvőn?</label>
+            <select name="attending" id="attending" value={formData.attending} onChange={handleChange} required>
+              <option value="">Kérjük válassz egy opciót!</option>
+              <option value="yes">Igen</option>
+              <option value="no">Nem</option>
+            </select>
+            <ErrorMessage message={errors['attending']} />
+          </div>
+          <div className="field half">
+            <label htmlFor="guests">Plusz vendégek száma</label>
+            <select name="guests" id="guests" value={formData.guests} onChange={handleChange} required>
+              {[...Array(10).keys()].map(num => (
+                <option key={num} value={num + 1}>{num + 1}</option>
+              ))}
+            </select>
+          </div>
+          <ul className="actions">
+            <li>
+              <input type="reset" value="Reset" className="reset-button" onClick={resetFormAndErrors} />
+            </li>
+            <li>
+              <input type="submit" value="Send RSVP" className="special" />
+            </li>
+          </ul>
+        </form>
       </div>
-      <div className="field half">
-        <label htmlFor="email">Email</label>
-        <input type="email" name="email" id="email" value={formData.email} onChange={handleChange} required />
-        {errors['email'] && <p className="error">{errors['email']}</p>}
-      </div>
-      <div className="field half first">
-        <label htmlFor="attending">Will you be attending?</label>
-        <select name="attending" id="attending" value={formData.attending} onChange={handleChange} required>
-          <option value="">--Please choose an option--</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-        {errors['attending'] && <p className="error">{errors['attending']}</p>}
-      </div>
-      <div className="field half">
-        <label htmlFor="guests">Number of Guests</label>
-        <select
-          name="guests"
-          id="guests"
-          value={formData.guests}
-          onChange={handleChange}
-          required>
-          {[...Array(10).keys()].map(num => (
-            <option key={num} value={num + 1}>{num + 1}</option>
-          ))}
-        </select>
-      </div>
-      <ul className="actions">
-        <li>
-          <input type="reset" value="Reset" className="reset-button" onClick={resetFormAndErrors} />
-        </li>
-        <li>
-          <input type="submit" value="Send RSVP" className="special" />
-        </li>
-      </ul>
-    </form>
   </Card>
   );
 };

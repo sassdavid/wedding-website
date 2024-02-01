@@ -4,6 +4,7 @@
   "version": "5.13.3",
   "author": "David Sass",
   "dependencies": {
+    "crypto-js": "^4.2.0",
     "@gatsbyjs/reach-router": "^2.0.1",
     "@react-icons/all-files": "^4.1.0",
     "gatsby": "^5.13.3",
@@ -54,6 +55,7 @@
     "@graphql-eslint/eslint-plugin": "^3.20.1",
     "@netlify/functions": "^2.5.1",
     "@netlify/plugin-gatsby": "^3.8.0",
+    "@types/crypto-js": "^4.2.2",
     "@types/node": "^20.11.7",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
