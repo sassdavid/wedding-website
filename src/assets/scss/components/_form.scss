@@ -4,6 +4,15 @@
 /// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
 
+.error {
+  color: #ff6b6b; // Use a color that stands out, but fits your form's design
+  font-size: 0.9em; // Adjust the size as needed, slightly smaller than the input text
+  margin-top: 0.5em; // Add some space above the error message
+  margin-bottom: 0.5em; // Add some space below the error message if needed
+  font-family: inherit; // This will ensure it uses the same font as the body
+  font-weight: normal; // Adjust the weight as needed
+}
+
 /* Form */
 
 	form {

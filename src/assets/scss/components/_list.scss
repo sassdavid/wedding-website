@@ -77,10 +77,11 @@ ul {
     cursor: default;
     list-style: none;
     padding-left: 0;
+    text-align: right; // Align inline or inline-block elements to the right
 
     li {
       display: inline-block;
-      padding: 0 calc(_size(element-margin) * 0.5) 0 0;
+      padding: 0 calc(_size(element-margin) * 1.1) 0 0;
       vertical-align: middle;
 
       &:last-child {
