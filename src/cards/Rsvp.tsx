@@ -11,7 +11,6 @@ const Rsvp = (props) => {
     email: '',
     phonenumber: '',
     shottype: '',
-    accommodation: false,
     attending: '',
     guests: 1,
     passphrase: '',
@@ -33,7 +32,9 @@ const Rsvp = (props) => {
     };
   }, [formRef]);
 
-  const secretHash = '13df49eeb1f666dbdc7242d3137a327ce9ff84b8d9a348d20e1c67eae4befb9cb86e4af0722c0ce61c37dc550c1fa9bec92a665af4d42dcdd3bab582c2c76e0a';
+  const secretHash: string = '13df49eeb1f666dbdc7242d3137a327ce9ff84b8d9a348d20e1c67eae4befb9cb86e4af0722c0ce61c37dc550c1fa9bec92a665af4d42dcdd3bab582c2c76e0a';
+  const emailRegex: RegExp = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
+  const phonenumberRegex: RegExp = /^(\+?(36|49)[ -]?)?(\(?\d{1,3}\)?[ -]?)?(\d[ -]?){6,10}$/;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -45,22 +46,32 @@ const Rsvp = (props) => {
 
   const validateForm = () => {
     let newErrors = {};
+
     if ( !formData.name ) {
       newErrors['name'] = 'A név kitöltése kötelező.';
     }
+
+    if ( formData.phonenumber && !phonenumberRegex.test(formData.phonenumber) ) {
+      newErrors['phonenumber'] = 'Telefonszám nem megfelelő.';
+    }
+
     if ( !formData.email ) {
       newErrors['email'] = 'Az email kitöltése kötelező.';
-    } else if ( !/\S+@\S+\.\S+/.test(formData.email) ) {
+    } else if ( !emailRegex.test(formData.email) ) {
       newErrors['email'] = 'Email cím nem megfelelő.';
     }
+
     if ( !formData.attending ) {
       newErrors['attending'] = 'Kérjek jelöld, hogy részt veszel-e az eksüvőn.';
     }
+
     const hashedPassphrase = CryptoJS.SHA3(formData.passphrase, { outputLength: 512 }).toString();
     if ( hashedPassphrase !== secretHash ) {
       newErrors['passphrase'] = 'Hibás jelszó.';
     }
+
     setErrors(newErrors);
+
     return Object.keys(newErrors).length === 0;
   };
 
@@ -90,7 +101,6 @@ const Rsvp = (props) => {
       email: '',
       phonenumber: '',
       shottype: '',
-      accommodation: false,
       attending: '',
       guests: 1,
       passphrase: '',
@@ -104,7 +114,6 @@ const Rsvp = (props) => {
       email: '',
       phonenumber: '',
       shottype: '',
-      accommodation: false,
       attending: '',
       guests: 1,
       passphrase: '',
@@ -117,12 +126,11 @@ const Rsvp = (props) => {
   return (
     <Card id="rsvp" style={props.style} onCloseArticle={handleCloseArticle} articleClassName={props.articleClassName}>
       <div ref={formRef}>
-        <h2 className="major">RSVP Form</h2>
+        <h2 className="major">RSVP</h2>
         <form className="rsvp-form" onSubmit={handleSubmit} name="rsvp" noValidate>
           <div className="field">
             <label htmlFor="passphrase">Meghívási kulcs</label>
-            <input type="text" name="passphrase" id="passphrase" value={formData.passphrase} onChange={handleChange}
-                   placeholder="Add meg a kapott meghívási kulcsot!" required />
+            <input type="text" name="passphrase" id="passphrase" value={formData.passphrase} onChange={handleChange} required />
             <ErrorMessage message={errors['passphrase']} />
           </div>
           <div className="field half first">
@@ -144,10 +152,6 @@ const Rsvp = (props) => {
             <label htmlFor="shottype">Kedvenc rövidital</label>
             <input type="text" name="shottype" id="shottype" value={formData.shottype} onChange={handleChange} />
             <ErrorMessage message={errors['shottype']} />
-          </div>
-          <div className="field">
-            <input type="checkbox" id="accommodation" />
-            <label htmlFor="accommodation">Szállásfoglalásban segítsünk?</label>
           </div>
           <div className="field half first">
             <label htmlFor="attending">Részt veszel az esküvőn?</label>

@@ -13,6 +13,7 @@ form {
 
   .field {
     margin: 0 0 ($gutter * 1) 0;
+    padding: 0 0 ($gutter * 0.0125) 0;
 
     &.half {
       width: 50%;
@@ -256,4 +257,57 @@ input[type="radio"] {
 .formerize-placeholder {
   color: _palette(fg-light) !important;
   opacity: 1.0;
+}
+
+label {
+  font-size: 0.7rem; // was 0.8rem
+  padding: 0 0 (_size(element-margin) * 0.5) 0;
+  margin: (_size(element-margin) * -0.75) 0 (_size(element-margin) * 0.5) 0;
+}
+
+form {
+  $gutter: _size(element-margin) * 0.6;
+}
+
+input[type="text"], input[type="password"], input[type="email"], select {
+  height: _size(element-height) * 0.8;
+}
+
+input[type="text"], input[type="password"], input[type="email"], select {
+  padding: 0 0 0 10px;
+  margin: (_size(element-margin) * -0.75) 0 0 0;
+}
+
+input[type="checkbox"] + label, input[type="radio"] + label {
+  padding-left: (_size(element-height) * 0.5) + 1rem;
+  padding-top: (_size(element-height) * 0.1);
+  margin: 0 0 (_size(element-margin) * 0.25) 0;
+  font-size: 0.7rem;
+}
+
+#rsvp h2.major {
+  margin: 0 0 (_size(element-margin) * 1.5) 0;
+}
+
+.errorMessage {
+  min-height: 20px;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  color: transparent;
+  visibility: visible;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  font-size: 0.8em;
+  font-family: inherit;
+  font-weight: normal;
+
+  @include breakpoint(small){
+    margin-bottom: 2.5em;
+  }
+}
+
+// Dynamic color based on props in React component
+.hasError {
+  color: #ff6b6b;
 }
