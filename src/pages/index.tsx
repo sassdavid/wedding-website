@@ -5,7 +5,11 @@ import Main from '../components/Main';
 import Footer from '../components/Footer';
 import { StaticImage } from 'gatsby-plugin-image';
 
-class IndexPage extends React.Component {
+class IndexPage extends React.Component<any, any> {
+
+  timeoutId: number | undefined;
+  wrapperRef: HTMLElement | null = null;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -29,7 +33,7 @@ class IndexPage extends React.Component {
   }
 
   componentWillUnmount() {
-    if (this.timeoutId) {
+    if ( this.timeoutId ) {
       clearTimeout(this.timeoutId);
     }
     document.removeEventListener('mousedown', this.handleClickOutside);
@@ -78,8 +82,8 @@ class IndexPage extends React.Component {
   }
 
   handleClickOutside(event) {
-    if (this.wrapperRef && event.target.id == 'wrapper') {
-      if (this.state.isArticleVisible) {
+    if ( this.wrapperRef && event.target.id == 'wrapper' ) {
+      if ( this.state.isArticleVisible ) {
         this.handleCloseArticle();
       }
     }
@@ -97,8 +101,7 @@ class IndexPage extends React.Component {
               articleTimeout={this.state.articleTimeout}
               article={this.state.article}
               onCloseArticle={this.handleCloseArticle}
-              setWrapperRef={this.setWrapperRef}
-            />
+              setWrapperRef={this.setWrapperRef} />
             <Footer timeout={this.state.timeout} />
           </div>
           <div id="bg">

@@ -42,9 +42,9 @@ const Header = props => (
         </li>
         <li>
           <button onClick={() => {
-            props.onOpenArticle('contact');
+            props.onOpenArticle('rsvp');
           }}>
-            Contact
+            RSVP
           </button>
         </li>
       </ul>

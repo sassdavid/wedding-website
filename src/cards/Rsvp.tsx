@@ -7,12 +7,15 @@ import ErrorMessage from '@/cards/ErrorMessage';
 
 const Rsvp = (props) => {
   const [formData, setFormData] = useState({
-                                             name: '',
-                                             email: '',
-                                             attending: '',
-                                             guests: 1,
-                                             passphrase: '',
-                                           });
+    name: '',
+    email: '',
+    phonenumber: '',
+    shottype: '',
+    accommodation: false,
+    attending: '',
+    guests: 1,
+    passphrase: '',
+  });
   const [errors, setErrors] = useState({});
 
   const formRef = useRef(null);
@@ -83,23 +86,29 @@ const Rsvp = (props) => {
 
   const resetFormAndErrors = () => {
     setFormData({
-                  name: '',
-                  email: '',
-                  attending: '',
-                  guests: 1,
-                  passphrase: '',
-                });
+      name: '',
+      email: '',
+      phonenumber: '',
+      shottype: '',
+      accommodation: false,
+      attending: '',
+      guests: 1,
+      passphrase: '',
+    });
     setErrors({});
   };
 
   const handleCloseArticle = () => {
     setFormData({
-                  name: '',
-                  email: '',
-                  attending: '',
-                  guests: 1,
-                  passphrase: '',
-                });
+      name: '',
+      email: '',
+      phonenumber: '',
+      shottype: '',
+      accommodation: false,
+      attending: '',
+      guests: 1,
+      passphrase: '',
+    });
     setErrors({});
 
     props.onCloseArticle();
@@ -122,9 +131,23 @@ const Rsvp = (props) => {
             <ErrorMessage message={errors['name']} />
           </div>
           <div className="field half">
+            <label htmlFor="phonenumber">Telefonszám</label>
+            <input type="text" name="phonenumber" id="phonenumber" value={formData.phonenumber} onChange={handleChange} required />
+            <ErrorMessage message={errors['phonenumber']} />
+          </div>
+          <div className="field half first">
             <label htmlFor="email">Email</label>
-            <input type="email" name="email" id="email" value={formData.email} onChange={handleChange} required />
+            <input type="text" name="email" id="email" value={formData.email} onChange={handleChange} required />
             <ErrorMessage message={errors['email']} />
+          </div>
+          <div className="field half">
+            <label htmlFor="shottype">Kedvenc rövidital</label>
+            <input type="text" name="shottype" id="shottype" value={formData.shottype} onChange={handleChange} />
+            <ErrorMessage message={errors['shottype']} />
+          </div>
+          <div className="field">
+            <input type="checkbox" id="accommodation" />
+            <label htmlFor="accommodation">Szállásfoglalásban segítsünk?</label>
           </div>
           <div className="field half first">
             <label htmlFor="attending">Részt veszel az esküvőn?</label>

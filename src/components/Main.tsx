@@ -16,7 +16,7 @@ const Main = props => (
     <About articleClassName={`${props.article === 'about' ? 'active' : ''} ${props.articleTimeout ? 'timeout' : ''}`} style={{ display: 'none' }}
            onCloseArticle={props.onCloseArticle} />
 
-    <Rsvp articleClassName={`${props.article === 'contact' ? 'active' : ''} ${props.articleTimeout ? 'timeout' : ''}`}
+    <Rsvp articleClassName={`${props.article === 'rsvp' ? 'active' : ''} ${props.articleTimeout ? 'timeout' : ''}`}
           style={{ display: 'none' }}
           onCloseArticle={props.onCloseArticle} />
   </div>
