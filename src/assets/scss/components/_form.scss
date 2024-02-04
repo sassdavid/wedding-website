@@ -285,8 +285,13 @@ input[type="checkbox"] + label, input[type="radio"] + label {
   font-size: 0.7rem;
 }
 
-#rsvp h2.major {
-  margin: 0 0 (_size(element-margin) * 1.5) 0;
+#messageLabel {
+  padding: 0 0 0 0;
+}
+
+#messageTextarea {
+  padding: 5px 0 0 10px;
+  margin: _size(element-margin) * -0.225 0 0 0;
 }
 
 .errorMessage {
@@ -302,7 +307,7 @@ input[type="checkbox"] + label, input[type="radio"] + label {
   font-family: inherit;
   font-weight: normal;
 
-  @include breakpoint(small){
+  @include breakpoint(small) {
     margin-bottom: 0;
   }
 }

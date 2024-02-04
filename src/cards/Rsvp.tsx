@@ -16,6 +16,7 @@ const Rsvp = (props) => {
     dinner: '',
     shottype: '',
     passphrase: '',
+    message: '',
   });
   const [errors, setErrors] = useState({});
 
@@ -109,11 +110,11 @@ const Rsvp = (props) => {
     formData.attending = mappings.attending[formData.attending];
     formData.dinner = mappings.dinner[formData.dinner];
 
-    try {
-      if ( formData.alone === 'yes' ) {
-        formData.guests = 0;
-      }
+    if ( formData.alone === 'yes' ) {
+      formData.guests = 0;
+    }
 
+    try {
       let body = JSON.stringify(formData);
       console.log(body);
       const response = { result: 'success' };
@@ -144,6 +145,7 @@ const Rsvp = (props) => {
       dinner: '',
       shottype: '',
       passphrase: '',
+      message: '',
     });
     setErrors({});
   };
@@ -159,6 +161,7 @@ const Rsvp = (props) => {
       dinner: '',
       shottype: '',
       passphrase: '',
+      message: '',
     });
     setErrors({});
 
@@ -171,7 +174,7 @@ const Rsvp = (props) => {
         <h2 className="major">RSVP</h2>
         <form className="rsvp-form" onSubmit={handleSubmit} name="rsvp" noValidate>
           <div className="field">
-            <label htmlFor="passphrase">Meghívási kulcs</label>
+            <label htmlFor="passphrase">Jelszó</label>
             <input type="text" name="passphrase" id="passphrase" value={formData.passphrase} onChange={handleChange} required />
             <ErrorMessage message={errors['passphrase']} />
           </div>
@@ -218,7 +221,7 @@ const Rsvp = (props) => {
                       <option key={num + 1} value={num + 1}>{num + 1}</option>
                     ))}
                   </select>
-                  <ErrorMessage message={errors['shottype']} />
+                  <ErrorMessage />
                 </div>
               )}
               <div className={`field half ${formData.alone === 'no' ? 'first' : ''}`}>
@@ -231,12 +234,17 @@ const Rsvp = (props) => {
                 <ErrorMessage message={errors['dinner']} />
               </div>
               <div className={`field ${formData.alone === 'no' ? 'half' : ''}`}>
-                <label htmlFor="shottype">Kedvenc rövidital</label>
+                <label htmlFor="shottype">Kedvenc rövidital(ok)</label>
                 <input type="text" name="shottype" id="shottype" value={formData.shottype} onChange={handleChange} />
                 <ErrorMessage message={errors['shottype']} />
               </div>
             </React.Fragment>
           )}
+          <div className="field">
+            <label id="messageLabel" htmlFor="messageTextarea">Bármilyen kérés/kérdés felénk</label>
+            <textarea name="message" id="messageTextarea" rows="3" value={formData.message} onChange={handleChange}
+                      placeholder="Például itt tudod megadni, hogy szükséged van-e vegetáriánus, vegán, vagy laktóz/gluténmentes ételre." />
+          </div>
           <ul className="actions">
             <li>
               <input type="reset" value="Töröl" className="reset-button" onClick={resetFormAndErrors} />
