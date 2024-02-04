@@ -9,10 +9,10 @@
 form {
   $gutter: _size(element-margin) * 0.75;
 
-  margin: 0 0 (_size(element-margin) * 1.25) 0;
+  margin: 0 0 _size(element-margin) * 1.25 0;
 
   .field {
-    margin: 0 0 ($gutter * 1) 0;
+    margin: 0 0 ($gutter * -0.5) 0;
     padding: 0 0 ($gutter * 0.0125) 0;
 
     &.half {
@@ -32,7 +32,7 @@ form {
 
   @include breakpoint(small) {
     .field {
-      margin: 0 0 ($gutter * 0.75) 0;
+      margin: 0 0 ($gutter * 0.3) 0;
 
       &.half {
         padding: 0 0 0 ($gutter * 0.75 * 0.5);
@@ -65,7 +65,7 @@ form {
 
 label {
   color: _palette(fg-bold);
-  display: block;
+  display: inline-block;
   font-size: 0.8rem;
   font-weight: _font(weight);
   letter-spacing: _font(letter-spacing);
@@ -292,7 +292,7 @@ input[type="checkbox"] + label, input[type="radio"] + label {
 .errorMessage {
   min-height: 20px;
   margin-top: 0.5em;
-  margin-bottom: 0.5em;
+  margin-bottom: 1.5em;
   color: transparent;
   visibility: visible;
   opacity: 1;
@@ -303,7 +303,7 @@ input[type="checkbox"] + label, input[type="radio"] + label {
   font-weight: normal;
 
   @include breakpoint(small){
-    margin-bottom: 2.5em;
+    margin-bottom: 0;
   }
 }
 

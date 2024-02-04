@@ -12,6 +12,7 @@ const Rsvp = (props) => {
     phonenumber: '',
     shottype: '',
     attending: '',
+    dinner: '',
     guests: 1,
     passphrase: '',
   });
@@ -48,26 +49,30 @@ const Rsvp = (props) => {
     let newErrors = {};
 
     if ( !formData.name ) {
-      newErrors['name'] = 'A név kitöltése kötelező.';
+      newErrors['name'] = 'A név kitöltése kötelező!';
     }
 
     if ( formData.phonenumber && !phonenumberRegex.test(formData.phonenumber) ) {
-      newErrors['phonenumber'] = 'Telefonszám nem megfelelő.';
+      newErrors['phonenumber'] = 'A telefonszám nem megfelelő!';
     }
 
     if ( !formData.email ) {
-      newErrors['email'] = 'Az email kitöltése kötelező.';
+      newErrors['email'] = 'Az email cim kitöltése kötelező!';
     } else if ( !emailRegex.test(formData.email) ) {
-      newErrors['email'] = 'Email cím nem megfelelő.';
+      newErrors['email'] = 'Az email cím nem megfelelő!';
     }
 
     if ( !formData.attending ) {
-      newErrors['attending'] = 'Kérjek jelöld, hogy részt veszel-e az eksüvőn.';
+      newErrors['attending'] = 'Kérjek jelöld, hogy részt veszel-e az eksüvőn!';
+    }
+
+    if ( !formData.dinner ) {
+      newErrors['dinner'] = 'Kérjek jelöld, hogy részt veszel-e a vacsorán!';
     }
 
     const hashedPassphrase = CryptoJS.SHA3(formData.passphrase, { outputLength: 512 }).toString();
     if ( hashedPassphrase !== secretHash ) {
-      newErrors['passphrase'] = 'Hibás jelszó.';
+      newErrors['passphrase'] = 'Hibás jelszó!';
     }
 
     setErrors(newErrors);
@@ -102,6 +107,7 @@ const Rsvp = (props) => {
       phonenumber: '',
       shottype: '',
       attending: '',
+      dinner: '',
       guests: 1,
       passphrase: '',
     });
@@ -115,6 +121,7 @@ const Rsvp = (props) => {
       phonenumber: '',
       shottype: '',
       attending: '',
+      dinner: '',
       guests: 1,
       passphrase: '',
     });
@@ -149,11 +156,6 @@ const Rsvp = (props) => {
             <ErrorMessage message={errors['email']} />
           </div>
           <div className="field half">
-            <label htmlFor="shottype">Kedvenc rövidital</label>
-            <input type="text" name="shottype" id="shottype" value={formData.shottype} onChange={handleChange} />
-            <ErrorMessage message={errors['shottype']} />
-          </div>
-          <div className="field half first">
             <label htmlFor="attending">Részt veszel az esküvőn?</label>
             <select name="attending" id="attending" value={formData.attending} onChange={handleChange} required>
               <option value="">Kérjük válassz egy opciót!</option>
@@ -162,20 +164,39 @@ const Rsvp = (props) => {
             </select>
             <ErrorMessage message={errors['attending']} />
           </div>
-          <div className="field half">
-            <label htmlFor="guests">Plusz vendégek száma</label>
-            <select name="guests" id="guests" value={formData.guests} onChange={handleChange} required>
-              {[...Array(10).keys()].map(num => (
-                <option key={num} value={num + 1}>{num + 1}</option>
-              ))}
-            </select>
-          </div>
+          {formData.attending === 'yes' && (
+            <React.Fragment>
+              <div className="field half first">
+                <label htmlFor="dinner">Részt veszel a vacsorán?</label>
+                <select name="dinner" id="dinner" value={formData.dinner} onChange={handleChange} required>
+                  <option value="">Kérjük válassz egy opciót!</option>
+                  <option value="yes">Igen</option>
+                  <option value="no">Nem</option>
+                </select>
+                <ErrorMessage message={errors['dinner']} />
+              </div>
+               <div className="field half">
+                <label htmlFor="guests">Plusz vendégek száma</label>
+                <select name="guests" id="guests" value={formData.guests} onChange={handleChange} required>
+                  {[...Array(10).keys()].map(num => (
+                    <option key={num} value={num + 1}>{num + 1}</option>
+                  ))}
+                </select>
+                <ErrorMessage message={errors['shottype']} />
+              </div>
+              <div className="field">
+                <label htmlFor="shottype">Kedvenc rövidital</label>
+                <input type="text" name="shottype" id="shottype" value={formData.shottype} onChange={handleChange} />
+                <ErrorMessage message={errors['shottype']} />
+              </div>
+            </React.Fragment>
+          )}
           <ul className="actions">
             <li>
-              <input type="reset" value="Reset" className="reset-button" onClick={resetFormAndErrors} />
+              <input type="reset" value="Töröl" className="reset-button" onClick={resetFormAndErrors} />
             </li>
             <li>
-              <input type="submit" value="Send RSVP" className="special" />
+              <input type="submit" value="Beküld" className="special" />
             </li>
           </ul>
         </form>
