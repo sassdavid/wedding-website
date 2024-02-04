@@ -8,12 +8,13 @@ import ErrorMessage from '@/cards/ErrorMessage';
 const Rsvp = (props) => {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
     phonenumber: '',
-    shottype: '',
+    email: '',
     attending: '',
-    dinner: '',
+    alone: '',
     guests: 1,
+    dinner: '',
+    shottype: '',
     passphrase: '',
   });
   const [errors, setErrors] = useState({});
@@ -66,8 +67,12 @@ const Rsvp = (props) => {
       newErrors['attending'] = 'Kérjek jelöld, hogy részt veszel-e az eksüvőn!';
     }
 
-    if ( !formData.dinner ) {
+    if ( formData.attending === 'yes' && !formData.dinner ) {
       newErrors['dinner'] = 'Kérjek jelöld, hogy részt veszel-e a vacsorán!';
+    }
+
+    if ( formData.attending === 'yes' && !formData.alone ) {
+      newErrors['alone'] = 'Kérjek jelöld, hogy egyedül jössz-e!';
     }
 
     const hashedPassphrase = CryptoJS.SHA3(formData.passphrase, { outputLength: 512 }).toString();
@@ -85,16 +90,44 @@ const Rsvp = (props) => {
 
     if ( !validateForm() ) return;
 
+    const mappings = {
+      alone: {
+        'yes': 'Igen',
+        'no': 'Nem',
+      },
+      attending: {
+        'yes': 'Igen',
+        'no': 'Nem',
+      },
+      dinner: {
+        'yes': 'Igen',
+        'no': 'Nem',
+      },
+    };
+
+    formData.alone = mappings.alone[formData.alone];
+    formData.attending = mappings.attending[formData.attending];
+    formData.dinner = mappings.dinner[formData.dinner];
+
     try {
+      if ( formData.alone === 'yes' ) {
+        formData.guests = 0;
+      }
+
       let body = JSON.stringify(formData);
       console.log(body);
-      const response = { ok: 'true' };
-      if ( response.ok ) {
+      const response = { result: 'success' };
+
+      if ( response.result === 'success' ) {
         // noinspection ES6MissingAwait
-        navigate('/thanks');
+        navigate('/thanks', { state: { fillerName: formData.name } });
+      } else if ( response.result === 'duplicate' ) {
+        // noinspection ES6MissingAwait
+        navigate('/thanks', { state: { fillerName: formData.name, fillerEmail: formData.email } });
       } else {
         console.error('Form submission error');
       }
+
     } catch (error) {
       console.error('Error:', error);
     }
@@ -103,12 +136,13 @@ const Rsvp = (props) => {
   const resetFormAndErrors = () => {
     setFormData({
       name: '',
-      email: '',
       phonenumber: '',
-      shottype: '',
+      email: '',
       attending: '',
-      dinner: '',
+      alone: '',
       guests: 1,
+      dinner: '',
+      shottype: '',
       passphrase: '',
     });
     setErrors({});
@@ -117,12 +151,13 @@ const Rsvp = (props) => {
   const handleCloseArticle = () => {
     setFormData({
       name: '',
-      email: '',
       phonenumber: '',
-      shottype: '',
+      email: '',
       attending: '',
-      dinner: '',
+      alone: '',
       guests: 1,
+      dinner: '',
+      shottype: '',
       passphrase: '',
     });
     setErrors({});
@@ -167,7 +202,27 @@ const Rsvp = (props) => {
           {formData.attending === 'yes' && (
             <React.Fragment>
               <div className="field half first">
-                <label htmlFor="dinner">Részt veszel a vacsorán?</label>
+                <label htmlFor="alone">Egyedül érkezel?</label>
+                <select name="alone" id="alone" value={formData.alone} onChange={handleChange} required>
+                  <option value="">Kérjük válassz egy opciót!</option>
+                  <option value="yes">Igen</option>
+                  <option value="no">Nem</option>
+                </select>
+                <ErrorMessage message={errors['alone']} />
+              </div>
+              {formData.alone === 'no' && (
+                <div className="field half">
+                  <label htmlFor="guests">Plusz vendégek száma</label>
+                  <select name="guests" id="guests" value={formData.guests} onChange={handleChange} required>
+                    {[...Array(10).keys()].map(num => (
+                      <option key={num + 1} value={num + 1}>{num + 1}</option>
+                    ))}
+                  </select>
+                  <ErrorMessage message={errors['shottype']} />
+                </div>
+              )}
+              <div className={`field half ${formData.alone === 'no' ? 'first' : ''}`}>
+                <label htmlFor="dinner">{formData.alone === 'no' ? 'Részt vesztek a vacsorán?' : 'Részt veszel a vacsorán?'}</label>
                 <select name="dinner" id="dinner" value={formData.dinner} onChange={handleChange} required>
                   <option value="">Kérjük válassz egy opciót!</option>
                   <option value="yes">Igen</option>
@@ -175,16 +230,7 @@ const Rsvp = (props) => {
                 </select>
                 <ErrorMessage message={errors['dinner']} />
               </div>
-               <div className="field half">
-                <label htmlFor="guests">Plusz vendégek száma</label>
-                <select name="guests" id="guests" value={formData.guests} onChange={handleChange} required>
-                  {[...Array(10).keys()].map(num => (
-                    <option key={num} value={num + 1}>{num + 1}</option>
-                  ))}
-                </select>
-                <ErrorMessage message={errors['shottype']} />
-              </div>
-              <div className="field">
+              <div className={`field ${formData.alone === 'no' ? 'half' : ''}`}>
                 <label htmlFor="shottype">Kedvenc rövidital</label>
                 <input type="text" name="shottype" id="shottype" value={formData.shottype} onChange={handleChange} />
                 <ErrorMessage message={errors['shottype']} />
