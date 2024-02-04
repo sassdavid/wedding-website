@@ -20,6 +20,8 @@ const Rsvp = (props) => {
   });
   const [errors, setErrors] = useState({});
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const formRef = useRef(null);
 
   useEffect(() => {
@@ -114,10 +116,23 @@ const Rsvp = (props) => {
       formData.guests = 0;
     }
 
+    const { passphrase: string, ...dataWithoutPassphrase } = formData;
+    const dataForUrlSearch: {} = Object.keys(dataWithoutPassphrase).reduce((acc: {}, key: string) => {
+      acc[key] = String(dataWithoutPassphrase[key]);
+      return acc;
+    }, {});
+
+    const queryParams: string = new URLSearchParams(dataForUrlSearch).toString();
+
     try {
-      let body = JSON.stringify(formData);
-      console.log(body);
-      const response = { result: 'success' };
+      setIsLoading(true);
+
+      const responseServer: Response = await fetch(`https://script.google.com/macros/s/AKfycby7gqxNKz29OugpZxC4Ol_KsI9a3qio7OJHlY4LzovVdkjTbRBxJOR5_hBzGTb--T1d/exec?${queryParams}`, {
+        method: 'GET',
+        mode: 'cors',
+      });
+
+      const response = await responseServer.json();
 
       if ( response.result === 'success' ) {
         // noinspection ES6MissingAwait
@@ -131,10 +146,12 @@ const Rsvp = (props) => {
 
     } catch (error) {
       console.error('Error:', error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  const resetFormAndErrors = () => {
+  const resetFormAndErrors = (): void => {
     setFormData({
       name: '',
       phonenumber: '',
@@ -150,7 +167,7 @@ const Rsvp = (props) => {
     setErrors({});
   };
 
-  const handleCloseArticle = () => {
+  const handleCloseArticle = (): void => {
     setFormData({
       name: '',
       phonenumber: '',
@@ -172,10 +189,15 @@ const Rsvp = (props) => {
     <Card id="rsvp" style={props.style} onCloseArticle={handleCloseArticle} articleClassName={props.articleClassName}>
       <div ref={formRef}>
         <h2 className="major">RSVP</h2>
+        {isLoading && (
+          <div className="full-screen-loader">
+          <div className="loader"></div>
+            </div>
+        )}
         <form className="rsvp-form" onSubmit={handleSubmit} name="rsvp" noValidate>
           <div className="field">
             <label htmlFor="passphrase">Jelszó</label>
-            <input type="text" name="passphrase" id="passphrase" value={formData.passphrase} onChange={handleChange} required />
+            <input type="password" name="passphrase" id="passphrase" value={formData.passphrase} onChange={handleChange} required />
             <ErrorMessage message={errors['passphrase']} />
           </div>
           <div className="field half first">
@@ -250,7 +272,7 @@ const Rsvp = (props) => {
               <input type="reset" value="Töröl" className="reset-button" onClick={resetFormAndErrors} />
             </li>
             <li>
-              <input type="submit" value="Beküld" className="special" />
+              <input type="submit" value="Beküld" className="special" disabled={isLoading} />
             </li>
           </ul>
         </form>
