@@ -24,11 +24,11 @@ const Card = props => {
 
 Card.propTypes = {
   children: PropTypes.oneOfType([
-                                  PropTypes.arrayOf(PropTypes.node),
-                                  PropTypes.node,
-                                ]),
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
   id: PropTypes.string.isRequired,
-  style: PropTypes.any.isRequired,
+  style: PropTypes.object.isRequired,
   articleClassName: PropTypes.string.isRequired,
   onCloseArticle: PropTypes.func.isRequired,
 };

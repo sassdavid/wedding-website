@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Bio from './bio';
+import CountdownTimer from '@/components/CountdownTimer';
 
 const Header = props => (
   <header id="header" style={props.timeout ? { display: 'none' } : {}}>
@@ -14,6 +15,9 @@ const Header = props => (
           A fully responsive site template designed by <a href="https://donboulton.com">Don Boulton</a> and released
           <br />
           for free under a <a href="https://donboulton.com/privacy">BSD</a> license.
+          <br/>
+          <br/>
+          Hátralévő napok száma: <CountdownTimer toDateWithHour="2024-10-04 17:00" />
         </p>
       </div>
     </div>
