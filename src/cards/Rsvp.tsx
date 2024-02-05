@@ -17,11 +17,11 @@ const Rsvp = (props) => {
     shottype: '',
     passphrase: '',
     message: '',
+    guestDetails: [{ name: '', isAdult: 'yes' }],
   });
+
   const [errors, setErrors] = useState({});
-
   const [isLoading, setIsLoading] = useState(false);
-
   const formRef = useRef(null);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const Rsvp = (props) => {
     }
 
     document.addEventListener('mousedown', handleClickOutside);
-    return () => {
+    return (): void => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [formRef]);
@@ -43,14 +43,28 @@ const Rsvp = (props) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-    if ( errors[name] ) {
-      setErrors({ ...errors, [name]: '' });
+    if ( name === 'guests' ) {
+      const newGuestCount: number = parseInt(value, 10);
+      const newGuestDetails = new Array(newGuestCount).fill(null).map((_, index: number) => {
+        return formData.guestDetails[index] || { name: '', isAdult: 'yes' };
+      });
+      setFormData({ ...formData, [name]: value, guestDetails: newGuestDetails });
+    } else if ( name.startsWith('guestName') || name.startsWith('guestIsAdult') ) {
+      const index: number = parseInt(name.split('-')[1], 10);
+      const updatedGuestDetails = [...formData.guestDetails];
+      if ( name.startsWith('guestName') ) {
+        updatedGuestDetails[index].name = value;
+      } else {
+        updatedGuestDetails[index].isAdult = value;
+      }
+      setFormData({ ...formData, guestDetails: updatedGuestDetails });
+    } else {
+      setFormData({ ...formData, [name]: value });
     }
   };
 
-  const validateForm = () => {
-    let newErrors = {};
+  const validateForm = (): boolean => {
+    let newErrors: {} = {};
 
     if ( !formData.name ) {
       newErrors['name'] = 'A név kitöltése kötelező!';
@@ -78,7 +92,15 @@ const Rsvp = (props) => {
       newErrors['alone'] = 'Kérjek jelöld, hogy egyedül jössz-e!';
     }
 
-    const hashedPassphrase = CryptoJS.SHA3(formData.passphrase, { outputLength: 512 }).toString();
+    if ( formData.attending === 'yes' && formData.alone === 'no' ) {
+      formData.guestDetails.forEach((guest: { name: string; isAdult: string }, index: number): void => {
+        if ( !guest.name ) {
+          newErrors[`guestName-${index}`] = `A(z) ${index + 1}. vendég nevének megadása kötelező!`;
+        }
+      });
+    }
+
+    const hashedPassphrase: string = CryptoJS.SHA3(formData.passphrase, { outputLength: 512 }).toString();
     if ( hashedPassphrase !== secretHash ) {
       newErrors['passphrase'] = 'Hibás jelszó!';
     }
@@ -93,36 +115,39 @@ const Rsvp = (props) => {
 
     if ( !validateForm() ) return;
 
-    const mappings = {
-      alone: {
-        'yes': 'Igen',
-        'no': 'Nem',
-      },
-      attending: {
-        'yes': 'Igen',
-        'no': 'Nem',
-      },
-      dinner: {
-        'yes': 'Igen',
-        'no': 'Nem',
-      },
+    const translations = {
+      'yes': 'igen',
+      'no': 'nem',
     };
 
-    formData.alone = mappings.alone[formData.alone];
-    formData.attending = mappings.attending[formData.attending];
-    formData.dinner = mappings.dinner[formData.dinner];
-
-    if ( formData.alone === 'yes' ) {
+    if ( !formData.alone || formData.alone === 'yes' ) {
       formData.guests = 0;
     }
 
-    const { passphrase: string, ...dataWithoutPassphrase } = formData;
-    const dataForUrlSearch: {} = Object.keys(dataWithoutPassphrase).reduce((acc: {}, key: string) => {
-      acc[key] = String(dataWithoutPassphrase[key]);
+    const { passphrase, guestDetails, ...dataWithoutPassphraseAndGuestDetails } = formData;
+
+    const dataForUrlSearch = Object.keys(dataWithoutPassphraseAndGuestDetails).reduce((acc, key) => {
+      let value = dataWithoutPassphraseAndGuestDetails[key];
+      if ( value !== null && value !== undefined && value !== '' ) {
+        if ( ['attending', 'alone', 'dinner'].includes(key) ) {
+          value = translations[value] || value;
+        }
+        acc[key] = String(value);
+      }
       return acc;
     }, {});
 
-    const queryParams: string = new URLSearchParams(dataForUrlSearch).toString();
+    if ( formData.attending === 'yes' && formData.alone === 'no' && guestDetails ) {
+      const guestDetailsString = guestDetails
+        .map(guest => `${guest.name}, ${guest.isAdult === 'yes' ? 'Felnőtt' : 'Gyerek'}`)
+        .join('; ');
+
+      if ( guestDetailsString ) {
+        dataForUrlSearch['guestDetails'] = guestDetailsString;
+      }
+    }
+
+    const queryParams = new URLSearchParams(dataForUrlSearch).toString();
 
     try {
       setIsLoading(true);
@@ -163,6 +188,7 @@ const Rsvp = (props) => {
       shottype: '',
       passphrase: '',
       message: '',
+      guestDetails: [{ name: '', isAdult: 'yes' }],
     });
     setErrors({});
   };
@@ -179,10 +205,31 @@ const Rsvp = (props) => {
       shottype: '',
       passphrase: '',
       message: '',
+      guestDetails: [{ name: '', isAdult: 'yes' }],
     });
     setErrors({});
 
     props.onCloseArticle();
+  };
+
+  const renderGuestDetailsInputs = () => {
+    return formData.guestDetails.map((guest: { name: string; isAdult: string }, index: number) => (
+      <div key={index}>
+        <div className="field half first">
+          <label htmlFor={`guestName-${index}`}>{index + 1} plusz vendég neve</label>
+          <input type="text" name={`guestName-${index}`} id={`guestName-${index}`} value={guest.name} onChange={handleChange} required />
+          <ErrorMessage message={errors[`guestName-${index}`]} />
+        </div>
+        <div className="field half">
+          <label htmlFor={`guestIsAdult-${index}`}>Idősebb, mint 10?</label>
+          <select name={`guestIsAdult-${index}`} id={`guestIsAdult-${index}`} value={guest.isAdult} onChange={handleChange} required>
+            <option value="yes">Igen</option>
+            <option value="no">Nem</option>
+          </select>
+          <ErrorMessage />
+        </div>
+      </div>
+    ));
   };
 
   return (
@@ -236,15 +283,18 @@ const Rsvp = (props) => {
                 <ErrorMessage message={errors['alone']} />
               </div>
               {formData.alone === 'no' && (
-                <div className="field half">
-                  <label htmlFor="guests">Plusz vendégek száma</label>
-                  <select name="guests" id="guests" value={formData.guests} onChange={handleChange} required>
-                    {[...Array(10).keys()].map(num => (
-                      <option key={num + 1} value={num + 1}>{num + 1}</option>
-                    ))}
-                  </select>
-                  <ErrorMessage />
-                </div>
+                <React.Fragment>
+                  <div className="field half">
+                    <label htmlFor="guests">Plusz vendégek száma</label>
+                    <select name="guests" id="guests" value={formData.guests} onChange={handleChange} required>
+                      {[...Array(10).keys()].map(num => (
+                        <option key={num + 1} value={num + 1}>{num + 1}</option>
+                      ))}
+                    </select>
+                    <ErrorMessage />
+                  </div>
+                  {renderGuestDetailsInputs()}
+                </React.Fragment>
               )}
               <div className={`field half ${formData.alone === 'no' ? 'first' : ''}`}>
                 <label htmlFor="dinner">{formData.alone === 'no' ? 'Részt vesztek a vacsorán?' : 'Részt veszel a vacsorán?'}</label>
