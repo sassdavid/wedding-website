@@ -15,8 +15,8 @@ const Header = props => (
           A fully responsive site template designed by <a href="https://donboulton.com">Don Boulton</a> and released
           <br />
           for free under a <a href="https://donboulton.com/privacy">BSD</a> license.
-          <br/>
-          <br/>
+          <br />
+          <br />
           Hátralévő napok száma: <CountdownTimer toDateWithHour="2024-10-04 17:00" />
         </p>
       </div>
@@ -27,28 +27,45 @@ const Header = props => (
           <button onClick={() => {
             props.onOpenArticle('intro');
           }}>
-            Intro
+            Meghívó
           </button>
         </li>
         <li>
           <button onClick={() => {
             props.onOpenArticle('work');
           }}>
-            Work
+            Helyszín
           </button>
         </li>
         <li>
           <button onClick={() => {
             props.onOpenArticle('about');
           }}>
-            About
+            Program
+          </button>
+        </li>
+        <li>
+          <button onClick={() => {
+            props.onOpenArticle('about');
+          }}>
+            Lánykérés
+          </button>
+        </li>
+        <li>
+          <button onClick={() => { props.onOpenArticle('about'); }}>
+            Ülésrend
+          </button>
+        </li>
+        <li>
+          <button onClick={() => { props.onOpenArticle('about'); }}>
+            Menü
           </button>
         </li>
         <li>
           <button onClick={() => {
             props.onOpenArticle('rsvp');
           }}>
-            RSVP
+            Visszajelzés
           </button>
         </li>
       </ul>

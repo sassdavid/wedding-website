@@ -8,10 +8,9 @@ const Bio = () => {
         className="bio-avatar"
         objectPosition="50% 50%"
         formats={['auto', 'webp']}
-        src="../../static/assets/gatsby-icon-100x100.png"
+        src="../../static/assets/bdlogo.png"
         quality={95}
-        alt="Profile Picture"
-      />
+        alt="Profile Picture" />
     </div>
   );
 };

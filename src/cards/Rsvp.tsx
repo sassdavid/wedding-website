@@ -235,7 +235,7 @@ const Rsvp = (props) => {
   return (
     <Card id="rsvp" style={props.style} onCloseArticle={handleCloseArticle} articleClassName={props.articleClassName}>
       <div ref={formRef}>
-        <h2 className="major">RSVP</h2>
+        <h2 className="major">Visszajelzés</h2>
         {isLoading && (
           <div className="full-screen-loader">
           <div className="loader"></div>
