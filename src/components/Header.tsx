@@ -25,39 +25,39 @@ const Header = props => (
       <ul>
         <li>
           <button onClick={() => {
-            props.onOpenArticle('intro');
+            props.onOpenArticle('invitation');
           }}>
             Meghívó
           </button>
         </li>
         <li>
           <button onClick={() => {
-            props.onOpenArticle('work');
+            props.onOpenArticle('venue');
           }}>
             Helyszín
           </button>
         </li>
         <li>
           <button onClick={() => {
-            props.onOpenArticle('about');
+            props.onOpenArticle('program');
           }}>
             Program
           </button>
         </li>
         <li>
           <button onClick={() => {
-            props.onOpenArticle('about');
+            props.onOpenArticle('proposal');
           }}>
             Lánykérés
           </button>
         </li>
         <li>
-          <button onClick={() => { props.onOpenArticle('about'); }}>
+          <button onClick={() => { props.onOpenArticle('seatingchart'); }}>
             Ülésrend
           </button>
         </li>
         <li>
-          <button onClick={() => { props.onOpenArticle('about'); }}>
+          <button onClick={() => { props.onOpenArticle('menu'); }}>
             Menü
           </button>
         </li>

@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import { StaticImage } from 'gatsby-plugin-image';
 import Card from '@/components/Card';
 
-const Intro = (props) => (
-  <Card id="intro" style={props.style} onCloseArticle={props.onCloseArticle} articleClassName={props.articleClassName}>
-    <h2 className="major">Intro</h2>
+const Invitation = (props) => (
+  <Card id="invitation" style={props.style} onCloseArticle={props.onCloseArticle} articleClassName={props.articleClassName}>
+    <h2 className="major">Meghívó</h2>
     <span className="image main">
-        <StaticImage formats={['auto', 'webp']} src="../../static/assets/pic01.jpg" alt="Intro" />
+        <StaticImage formats={['auto', 'webp']} src="../../static/assets/pic01.jpg" alt="Invitation" />
     </span>
     <p>
       Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue.
       Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi
-      nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#work">awesome work</a>.
+      nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#venue">awesome work</a>.
     </p>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti
@@ -26,10 +26,10 @@ const Intro = (props) => (
   </Card>
 );
 
-Intro.propTypes = {
+Invitation.propTypes = {
   articleClassName: PropTypes.string.isRequired,
   style: PropTypes.any.isRequired,
   onCloseArticle: PropTypes.func.isRequired,
 };
 
-export default Intro;
+export default Invitation;

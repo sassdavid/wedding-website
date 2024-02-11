@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { StaticImage } from 'gatsby-plugin-image';
 import Card from '@/components/Card';
 
-const Work = (props) => (
-  <Card id="work" style={props.style} onCloseArticle={props.onCloseArticle} articleClassName={props.articleClassName}>
-    <h2 className="major">Work</h2>
+const Menu = (props) => (
+  <Card id="Menu" style={props.style} onCloseArticle={props.onCloseArticle} articleClassName={props.articleClassName}>
+    <h2 className="major">Menü</h2>
     <span className="image main">
-        <StaticImage formats={['auto', 'webp']} src="../../static/assets/pic02.jpg" alt="Work" />
+        <StaticImage formats={['auto', 'webp']} src="../../static/assets/pic02.jpg" alt="Menu" />
     </span>
     <p>
       Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam
@@ -23,10 +23,10 @@ const Work = (props) => (
   </Card>
 );
 
-Work.propTypes = {
+Menu.propTypes = {
   articleClassName: PropTypes.string.isRequired,
   style: PropTypes.any.isRequired,
   onCloseArticle: PropTypes.func.isRequired,
 };
 
-export default Work;
+export default Menu;

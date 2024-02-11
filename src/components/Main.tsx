@@ -1,20 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Intro from '@/cards/Intro';
-import Work from '@/cards/Work';
-import About from '@/cards/About';
+import Invitation from '@/cards/Invitation';
+import Venue from '@/cards/Venue';
+import Program from '@/cards/Program';
 import Rsvp from '@/cards/Rsvp';
+import Proposal from '@/cards/Proposal';
+import SeatingChart from '@/cards/SeatingChart';
+import Menu from '@/cards/Menu';
 
 const Main = props => (
   <div ref={props.setWrapperRef} id="main" style={props.timeout ? { display: 'flex' } : { display: 'none' }}>
-    <Intro articleClassName={`${props.article === 'intro' ? 'active' : ''} ${props.articleTimeout ? 'timeout' : ''}`} style={{ display: 'none' }}
+    <Invitation articleClassName={`${props.article === 'invitation' ? 'active' : ''} ${props.articleTimeout ? 'timeout' : ''}`}
+                style={{ display: 'none' }}
+                onCloseArticle={props.onCloseArticle} />
+
+    <Venue articleClassName={`${props.article === 'venue' ? 'active' : ''} ${props.articleTimeout ? 'timeout' : ''}`} style={{ display: 'none' }}
            onCloseArticle={props.onCloseArticle} />
 
-    <Work articleClassName={`${props.article === 'work' ? 'active' : ''} ${props.articleTimeout ? 'timeout' : ''}`} style={{ display: 'none' }}
+    <Program articleClassName={`${props.article === 'program' ? 'active' : ''} ${props.articleTimeout ? 'timeout' : ''}`} style={{ display: 'none' }}
+             onCloseArticle={props.onCloseArticle} />
+
+    <Proposal articleClassName={`${props.article === 'proposal' ? 'active' : ''} ${props.articleTimeout ? 'timeout' : ''}`}
+              style={{ display: 'none' }}
+              onCloseArticle={props.onCloseArticle} />
+
+    <SeatingChart articleClassName={`${props.article === 'seatingchart' ? 'active' : ''} ${props.articleTimeout ? 'timeout' : ''}`}
+                  style={{ display: 'none' }}
+                  onCloseArticle={props.onCloseArticle} />
+
+    <Menu articleClassName={`${props.article === 'menu' ? 'active' : ''} ${props.articleTimeout ? 'timeout' : ''}`} style={{ display: 'none' }}
           onCloseArticle={props.onCloseArticle} />
-
-    <About articleClassName={`${props.article === 'about' ? 'active' : ''} ${props.articleTimeout ? 'timeout' : ''}`} style={{ display: 'none' }}
-           onCloseArticle={props.onCloseArticle} />
 
     <Rsvp articleClassName={`${props.article === 'rsvp' ? 'active' : ''} ${props.articleTimeout ? 'timeout' : ''}`} style={{ display: 'none' }}
           onCloseArticle={props.onCloseArticle} />
