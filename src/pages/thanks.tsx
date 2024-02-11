@@ -25,7 +25,7 @@ const Thanks = () => {
         <React.Fragment>
           <h2>Köszönjük {fillerName},</h2>
           <p>hogy kitöltötted az űrlapot, és ezzel jelezted, hogy részt tudsz-e venni az esküvőnkön!</p>
-          <p>Bármilyen extra kérés eseten keress minket privátban.</p>
+          <p>Bármilyen extra kérés esetén keress minket privátban.</p>
         </React.Fragment>
       )}
       {fillerName && fillerEmail && (
