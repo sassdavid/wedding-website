@@ -3,6 +3,7 @@ import Layout from '../components/layout';
 import Header from '../components/Header';
 import Main from '../components/Main';
 import Footer from '../components/Footer';
+import SEO from '../components/Seo';
 import { StaticImage } from 'gatsby-plugin-image';
 
 class IndexPage extends React.Component<any, any> {
@@ -112,5 +113,9 @@ class IndexPage extends React.Component<any, any> {
     );
   }
 }
+
+export const Head = () => (
+  <SEO />
+);
 
 export default IndexPage;

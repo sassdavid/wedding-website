@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import CookieConsent from 'react-cookie-consent';
 import { SiGnuprivacyguard } from '@react-icons/all-files/si/SiGnuprivacyguard';
-import SEO from '@/components/Seo';
 import '../assets/scss/main.scss';
 
 const Layout = ({ children, location }) => {
@@ -21,7 +20,6 @@ const Layout = ({ children, location }) => {
 
   return (
     <>
-      <SEO />
       {content}
       <CookieConsent
         enableDeclineButton

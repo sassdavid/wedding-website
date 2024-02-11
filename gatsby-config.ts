@@ -31,7 +31,6 @@ const config: GatsbyConfig = {
         },
       },
     },
-    'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
