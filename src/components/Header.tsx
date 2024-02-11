@@ -12,17 +12,25 @@ const Header = props => (
       <div className="inner">
         <h1>Bianka & Dávid</h1>
         <p>
-          A fully responsive site template designed by <a href="https://donboulton.com">Don Boulton</a> and released
+          Ezen az oldalon találod az eskövőnkkel kapcsolatos fontos információkat.
           <br />
-          for free under a <a href="https://donboulton.com/privacy">BSD</a> license.
+          <br className="just-margin" />
+          Visszaszámlálás:
           <br />
-          <br />
-          Hátralévő napok száma: <CountdownTimer toDateWithHour="2024-10-04 17:00" />
+          <br className="just-margin" />
+          <CountdownTimer toDateWithHour="2024-10-04 17:00" />
         </p>
       </div>
     </div>
     <nav>
       <ul>
+        <li>
+          <button onClick={() => {
+            props.onOpenArticle('proposal');
+          }}>
+            Lánykérés
+          </button>
+        </li>
         <li>
           <button onClick={() => {
             props.onOpenArticle('invitation');
@@ -39,33 +47,26 @@ const Header = props => (
         </li>
         <li>
           <button onClick={() => {
+            props.onOpenArticle('rsvp');
+          }}>
+            Visszajelzés
+          </button>
+        </li>
+        <li>
+          <button onClick={() => {
             props.onOpenArticle('program');
           }}>
             Program
           </button>
         </li>
-        <li>
-          <button onClick={() => {
-            props.onOpenArticle('proposal');
-          }}>
-            Lánykérés
-          </button>
-        </li>
-        <li>
+        {/*<li>
           <button onClick={() => { props.onOpenArticle('seatingchart'); }}>
             Ülésrend
           </button>
-        </li>
+        </li>*/}
         <li>
           <button onClick={() => { props.onOpenArticle('menu'); }}>
             Menü
-          </button>
-        </li>
-        <li>
-          <button onClick={() => {
-            props.onOpenArticle('rsvp');
-          }}>
-            Visszajelzés
           </button>
         </li>
       </ul>

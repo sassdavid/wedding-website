@@ -1,33 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { RiHeart2Line } from '@react-icons/all-files/ri/RiHeart2Line';
-import { SiGnuprivacyguard } from '@react-icons/all-files/si/SiGnuprivacyguard';
+import { HiOutlineMail } from 'react-icons/hi';
 
 const Footer = props => (
   <footer id="footer" style={props.timeout ? { display: 'none' } : {}}>
     <p className="copyright">
-      &copy; Dimension V4{' '}
+      Itt értek el minket:{' '}
       <span>
-        <RiHeart2Line
+        <HiOutlineMail
           style={{
-            lineHeight: 'inherit',
             fontSize: '0.8rem',
-            color: 'red',
+            color: 'white',
+            verticalAlign: 'middle',
           }}
         />
       </span>{' '}
-      Gatsby Starter{' '}
+      <a href="mailto:kovacs.bianka4@gmail.com">kovacs.bianka4@gmail.com</a>{' '}
       <span>
-        <SiGnuprivacyguard
+        <HiOutlineMail
           style={{
-            lineHeight: 'inherit',
             fontSize: '0.8rem',
-            color: 'yellow',
+            color: 'white',
+            verticalAlign: 'middle',
           }}
         />
       </span>{' '}
-      <a href="/privacy">Privacy</a> Built with: <a href="https://www.gatsbyjs.org/" target="_blank"
-                                                    rel="noopener noreferrer nofollow">Gatsby.js v5.13.3</a>
+      <a href="mailto:david.sass14@gmail.com">david.sass14@gmail.com</a>
     </p>
   </footer>
 );

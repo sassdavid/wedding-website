@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import CookieConsent from 'react-cookie-consent';
-import { SiGnuprivacyguard } from '@react-icons/all-files/si/SiGnuprivacyguard';
+import { SiGnuprivacyguard } from 'react-icons/si';
 import '../assets/scss/main.scss';
 
 const Layout = ({ children, location }) => {

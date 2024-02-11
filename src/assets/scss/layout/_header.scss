@@ -83,7 +83,7 @@
               'opacity #{_duration(article)} ease-in-out'
       ));
       @include vendor('transition-delay', '0.25s');
-      padding: 3rem 2rem;
+      padding: 2rem 2rem;
       max-height: 40rem;
       overflow: hidden;
 
@@ -97,6 +97,12 @@
       letter-spacing: _font(letter-spacing);
       font-size: 0.8rem;
       line-height: 2;
+
+      br.just-margin {
+        content: "";
+        display: block;
+        margin: 1em;
+      }
     }
   }
 
@@ -191,6 +197,46 @@
     .content {
       p {
         br {
+          display: inherit;
+        }
+
+        br.just-margin {
+          content: "";
+          display: block;
+          margin: 1em;
+        }
+      }
+    }
+
+    nav {
+      ul {
+        @include vendor('flex-direction', 'column');
+        min-width: 10rem;
+        max-width: 100%;
+
+        li {
+          border-left: 0;
+          border-top: solid _size(border-width) _palette(border);
+
+          &:first-child {
+            border-top: 0;
+          }
+
+          button {
+            width: 100%;
+          }
+
+          a {
+            height: 3rem;
+            line-height: 3rem;
+            min-width: 0;
+            width: 100%;
+          }
+        }
+      }
+
+      &.use-middle {
+        &:after {
           display: none;
         }
       }
@@ -229,11 +275,17 @@
 
     .content {
       .inner {
-        padding: 2.5rem 1rem;
+        padding: 2rem 1rem;
       }
 
       p {
         line-height: 1.875;
+
+        br.just-margin {
+          content: "";
+          display: block;
+          margin: 1em;
+        }
       }
     }
   }
@@ -243,7 +295,19 @@
 
     .content {
       .inner {
-        padding: 2.5rem 0;
+        padding: 2rem 0;
+
+        p {
+          br {
+            display: inherit;
+          }
+
+          br.just-margin {
+            content: "";
+            display: block;
+            margin: 1em;
+          }
+        }
       }
     }
 
@@ -259,6 +323,10 @@
 
           &:first-child {
             border-top: 0;
+          }
+
+          button {
+            width: 100%;
           }
 
           a {
