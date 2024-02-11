@@ -21,6 +21,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
       siteUrl: String!
       siteImage: String!
       description: String!
+      keywords: String!
     }
   `);
 };

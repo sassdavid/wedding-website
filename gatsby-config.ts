@@ -4,7 +4,7 @@ const config: GatsbyConfig = {
   siteMetadata: {
     title: 'Bianka & David',
     author: 'David Sass',
-    siteUrl: 'https://biankaesdavid.hu',
+    siteUrl: 'https://biankaesdavid.info',
     siteImage: '/static/assets/bg.jpg',
     description: 'A wedding website where you can find all the details about the big day',
     keywords: 'gatsby, wedding website, wedding invitation',
