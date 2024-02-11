@@ -345,4 +345,37 @@
       }
     }
   }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.025);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .countdown-timer {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 500;
+    animation: pulse 2s infinite linear;
+
+    @include breakpoint(small) {
+      font-size: 0.9rem;
+    }
+  }
+
+  .countdown-timer-event-passed {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 500;
+
+    @include breakpoint(small) {
+      font-size: 0.9rem;
+    }
+  }
 }

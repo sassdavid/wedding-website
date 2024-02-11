@@ -1,34 +1,51 @@
 import React, { useEffect, useState } from 'react';
 
 const CountdownTimer = ({ toDateWithHour }) => {
-  const [countdown, setCountdown] = useState('');
-
-  const calculateCountdown = (): void => {
-    const now: Date = new Date();
-    const eventDate: Date = new Date(toDateWithHour);
-    const timeLeft: number = eventDate.getTime() - now.getTime();
-
-    if ( timeLeft > 0 ) {
-      const days: number = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-      const hours: number = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes: number = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds: number = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-      setCountdown(`${days} nap, ${hours} óra, ${minutes} perc, ${seconds} másodperc`);
-    } else {
-      setCountdown('Az esemény már lezajlott');
-    }
-  };
+  const [state, setState] = useState({
+    timeLeft: {
+      days: 0,
+      hours: 0,
+      minutes: 0,
+      seconds: 0,
+    },
+    eventPassed: false,
+  });
 
   useEffect(() => {
-    const timerID: number = setInterval(calculateCountdown, 1000);
+    const calculateCountdown = () => {
+      const now: Date = new Date();
+      const eventDate: Date = new Date(toDateWithHour);
+      const difference: number = eventDate.getTime() - now.getTime();
+
+      if ( difference > 0 ) {
+        const days: number = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours: number = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes: number = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds: number = Math.floor((difference % (1000 * 60)) / 1000);
+
+        setState({ timeLeft: { days, hours, minutes, seconds }, eventPassed: false });
+      } else {
+        setState({ timeLeft: { days: 0, hours: 0, minutes: 0, seconds: 0 }, eventPassed: true });
+      }
+    };
 
     calculateCountdown();
+    const intervalId: number = setInterval(calculateCountdown, 1000);
 
-    return () => clearInterval(timerID);
+    return () => clearInterval(intervalId);
   }, [toDateWithHour]);
 
-  return <>{countdown}</>;
+  const { timeLeft, eventPassed } = state;
+
+  const timerClass: string = eventPassed ? 'countdown-timer-event-passed' : 'countdown-timer';
+
+  return (
+    <span className={timerClass}>
+      {eventPassed
+        ? 'Az esemény már lezajlott.'
+        : `${timeLeft.days} nap, ${timeLeft.hours} óra, ${timeLeft.minutes} perc, ${timeLeft.seconds} másodperc`}
+    </span>
+  );
 };
 
 export default CountdownTimer;
