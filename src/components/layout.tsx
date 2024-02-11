@@ -1,25 +1,12 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
-import { graphql, Link, useStaticQuery } from 'gatsby';
+import { Link } from 'gatsby';
 import CookieConsent from 'react-cookie-consent';
 import { SiGnuprivacyguard } from '@react-icons/all-files/si/SiGnuprivacyguard';
-
+import SEO from '@/components/Seo';
 import '../assets/scss/main.scss';
 
 const Layout = ({ children, location }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery { 
-      site {
-        siteMetadata {
-          title,
-          description,
-          keywords
-        }
-      }
-    }
-  `);
-
   let content;
 
   if ( location && location.pathname === '/' ) {
@@ -34,14 +21,7 @@ const Layout = ({ children, location }) => {
 
   return (
     <>
-      <Helmet
-        title={data.site.siteMetadata.title}
-        meta={[
-          { name: 'description', content: data.site.siteMetadata.description },
-          { name: 'keywords', content: data.site.siteMetadata.keywords },
-        ]}>
-        <html lang="en" />
-      </Helmet>
+      <SEO />
       {content}
       <CookieConsent
         enableDeclineButton
