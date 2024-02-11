@@ -6,7 +6,7 @@ const CountdownTimer = ({ toDateWithHour }) => {
   const calculateCountdown = (): void => {
     const now: Date = new Date();
     const eventDate: Date = new Date(toDateWithHour);
-    const timeLeft: number = eventDate - now;
+    const timeLeft: number = eventDate.getTime() - now.getTime();
 
     if ( timeLeft > 0 ) {
       const days: number = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
@@ -21,10 +21,11 @@ const CountdownTimer = ({ toDateWithHour }) => {
   };
 
   useEffect(() => {
-    calculateCountdown();
-    const timer: number = setInterval(calculateCountdown, 1000);
+    const timerID: number = setInterval(calculateCountdown, 1000);
 
-    return () => clearInterval(timer);
+    calculateCountdown();
+
+    return () => clearInterval(timerID);
   }, [toDateWithHour]);
 
   return <>{countdown}</>;
