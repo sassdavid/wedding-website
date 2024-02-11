@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { navigate } from 'gatsby';
 import Card from '@/components/Card';
@@ -29,6 +29,8 @@ const Rsvp = (props) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    const newErrors = { ...errors };
+
     if ( name === 'guests' ) {
       const newGuestCount: number = parseInt(value, 10);
       const newGuestDetails = new Array(newGuestCount).fill(null).map((_, index: number) => {
@@ -40,13 +42,17 @@ const Rsvp = (props) => {
       const updatedGuestDetails = [...formData.guestDetails];
       if ( name.startsWith('guestName') ) {
         updatedGuestDetails[index].name = value;
+        delete newErrors[`guestName-${index}`];
       } else {
         updatedGuestDetails[index].isAdult = value;
       }
       setFormData({ ...formData, guestDetails: updatedGuestDetails });
     } else {
       setFormData({ ...formData, [name]: value });
+      delete newErrors[name];
     }
+
+    setErrors(newErrors);
   };
 
   const validateForm = (): boolean => {
@@ -200,10 +206,11 @@ const Rsvp = (props) => {
 
   const renderGuestDetailsInputs = () => {
     return formData.guestDetails.map((guest: { name: string; isAdult: string }, index: number) => (
-      <div key={index}>
+      <>
         <div className="field half first">
           <label htmlFor={`guestName-${index}`}>{index + 1}. plusz vendég neve</label>
-          <input type="text" name={`guestName-${index}`} id={`guestName-${index}`} value={guest.name} onChange={handleChange} required />
+          <input type="text" name={`guestName-${index}`} id={`guestName-${index}`} value={guest.name} onChange={handleChange} maxLength="60"
+                 required />
           <ErrorMessage message={errors[`guestName-${index}`]} />
         </div>
         <div className="field half">
@@ -214,7 +221,7 @@ const Rsvp = (props) => {
           </select>
           <ErrorMessage />
         </div>
-      </div>
+      </>
     ));
   };
 
@@ -239,18 +246,19 @@ const Rsvp = (props) => {
           </div>
           <div className="field half first">
             <label htmlFor="name">Név</label>
-            <input type="text" name="name" id="name" value={formData.name} onChange={handleChange} required />
+            <input type="text" name="name" id="name" value={formData.name} onChange={handleChange} maxLength="60" required />
             <ErrorMessage message={errors['name']} />
           </div>
           <div className="field half">
-            <label htmlFor="phonenumber">Telefonszám</label>
-            <input type="text" name="phonenumber" id="phonenumber" value={formData.phonenumber} onChange={handleChange} required />
-            <ErrorMessage message={errors['phonenumber']} />
+            <label htmlFor="email">Email</label>
+            <input type="text" name="email" id="email" value={formData.email} onChange={handleChange} maxLength="60" required
+                   autoComplete="username" />
+            <ErrorMessage message={errors['email']} />
           </div>
           <div className="field half first">
-            <label htmlFor="email">Email</label>
-            <input type="text" name="email" id="email" value={formData.email} onChange={handleChange} required autoComplete="username" />
-            <ErrorMessage message={errors['email']} />
+            <label htmlFor="phonenumber">Telefonszám</label>
+            <input type="text" name="phonenumber" id="phonenumber" value={formData.phonenumber} onChange={handleChange} maxLength="20" required />
+            <ErrorMessage message={errors['phonenumber']} />
           </div>
           <div className="field half">
             <label htmlFor="attending">Részt veszel az esküvőn?</label>
@@ -297,14 +305,14 @@ const Rsvp = (props) => {
               </div>
               <div className={`field ${formData.alone === 'no' ? 'half' : ''}`}>
                 <label htmlFor="shottype">Kedvenc rövidital(ok)</label>
-                <input type="text" name="shottype" id="shottype" value={formData.shottype} onChange={handleChange} />
+                <input type="text" name="shottype" id="shottype" value={formData.shottype} onChange={handleChange} maxLength="60" />
                 <ErrorMessage message={errors['shottype']} />
               </div>
             </React.Fragment>
           )}
           <div className="field">
             <label id="messageLabel" htmlFor="messageTextarea">Bármilyen kérés/kérdés felénk</label>
-            <textarea name="message" id="messageTextarea" rows="3" value={formData.message} onChange={handleChange}
+            <textarea name="message" id="messageTextarea" rows="3" value={formData.message} onChange={handleChange} maxLength="1000"
                       placeholder="Például itt tudod megadni, hogy szükséged van-e vegetáriánus, vegán, vagy laktóz/gluténmentes ételre." />
           </div>
           <ul className="actions">

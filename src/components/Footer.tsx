@@ -15,17 +15,7 @@ const Footer = props => (
           }}
         />
       </span>{' '}
-      <a href="mailto:kovacs.bianka4@gmail.com">kovacs.bianka4@gmail.com</a>{' '}
-      <span>
-        <HiOutlineMail
-          style={{
-            fontSize: '0.8rem',
-            color: 'white',
-            verticalAlign: 'middle',
-          }}
-        />
-      </span>{' '}
-      <a href="mailto:david.sass14@gmail.com">david.sass14@gmail.com</a>
+      <a href="mailto:kovacs.bianka4@gmail.com;david.sass14@gmail.com">E-mailt írok</a>{' '}
     </p>
   </footer>
 );
