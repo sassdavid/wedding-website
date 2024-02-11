@@ -243,8 +243,12 @@ const Rsvp = (props) => {
         )}
         <form className="rsvp-form" onSubmit={handleSubmit} name="rsvp" noValidate>
           <div className="field">
+            <input type="text" name="username" id="username" required readOnly={true} value="KnownUsername" style={{ display: 'none' }} />
+          </div>
+          <div className="field">
             <label htmlFor="passphrase">Jelszó</label>
-            <input type="password" name="passphrase" id="passphrase" value={formData.passphrase} onChange={handleChange} required />
+            <input type="password" name="passphrase" id="passphrase" value={formData.passphrase} onChange={handleChange} required
+                   autoComplete="current-password" />
             <ErrorMessage message={errors['passphrase']} />
           </div>
           <div className="field half first">
@@ -259,7 +263,7 @@ const Rsvp = (props) => {
           </div>
           <div className="field half first">
             <label htmlFor="email">Email</label>
-            <input type="text" name="email" id="email" value={formData.email} onChange={handleChange} required />
+            <input type="text" name="email" id="email" value={formData.email} onChange={handleChange} required autoComplete="username" />
             <ErrorMessage message={errors['email']} />
           </div>
           <div className="field half">

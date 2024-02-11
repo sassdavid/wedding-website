@@ -8,6 +8,7 @@
     "@gatsbyjs/reach-router": "^2.0.1",
     "@react-icons/all-files": "^4.1.0",
     "gatsby": "^5.13.3",
+    "gatsby-plugin-react-svg": "^3.3.0",
     "gatsby-plugin-gdpr-cookies": "^2.0.9",
     "gatsby-plugin-image": "^3.13.1",
     "gatsby-plugin-manifest": "^5.13.1",

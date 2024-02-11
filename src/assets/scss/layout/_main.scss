@@ -76,6 +76,33 @@ input:-webkit-autofill {
 
 .bio-avatar {
   border-radius: 100%;
+  width: 110px;
+  height: 110px;
+  transform: translateY(2%);
+
+  @include breakpoint(large) {
+    width: 80px;
+    height: 80px;
+    transform: translateY(3%);
+  }
+
+  @include breakpoint(medium) {
+    width: 80px;
+    height: 80px;
+    transform: translateY(3%);
+  }
+
+  @include breakpoint(small) {
+    width: 60px;
+    height: 60px;
+    transform: translateY(5%);
+  }
+
+  @include breakpoint(xxsmall) {
+    width: 55px;
+    height: 55px;
+    transform: translateY(5%);
+  }
 }
 
 #main {
