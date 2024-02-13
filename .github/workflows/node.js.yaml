@@ -1,0 +1,29 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        node-version: [20]
+        os: [ubuntu-22.04, windows-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: jdx/mise-action@v2
+        with:
+          experimental: true
+          mise: |
+            [tools]
+            node ${{ matrix.node-version }}
+      - run: npm ci
+      - name: Build and Statically Render
+        run: npm run build

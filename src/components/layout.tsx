@@ -25,8 +25,8 @@ const Layout = ({ children, location }) => {
         enableDeclineButton
         flipButtons
         location="bottom"
-        buttonText="Accept"
-        declineButtonText="Decline"
+        buttonText="Elfogad"
+        declineButtonText="Elutasít"
         cookieName="gatsby-gdpr-google-analytics"
         style={{
           background: 'linear-gradient(to right, transparent, #171717)',
@@ -40,17 +40,17 @@ const Layout = ({ children, location }) => {
           border: '1px black',
           textShadow: '2px 2px black',
         }}>
-        Don Boulton uses cookies for a better user experience.{' '}
+        A weboldal cookikat használ a jobb felhasználói élmény elérése érdekében.{' '}
         <span
           style={{
-            fontSize: '14px',
+            fontSize: '15px',
             textAlign: 'center',
-            marginLeft: '20px',
+            marginLeft: '10px',
           }}>
-              <span className="icon -lock">
-                <SiGnuprivacyguard />
-              </span>{' '}
-          <Link to="https://publiuslogic.com/privacy" alt="Privacy Page">Privacy Page</Link>
+          <span className="icon -lock">
+            <SiGnuprivacyguard />
+          </span>{' '}
+          <a href="/privacy" target="_blank" rel="noopener noreferrer">Adatkezelési tájékoztató</a>
         </span>
       </CookieConsent>
     </>

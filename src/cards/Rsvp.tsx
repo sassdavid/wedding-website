@@ -315,6 +315,9 @@ const Rsvp = (props) => {
             <textarea name="message" id="messageTextarea" rows="3" value={formData.message} onChange={handleChange} maxLength="1000"
                       placeholder="Például itt tudod megadni, hogy szükséged van-e vegetáriánus, vegán, vagy laktóz/gluténmentes ételre." />
           </div>
+          <p style={{ marginTop: '1rem', fontSize: '0.7rem', fontFamily: 'inherit' }}>
+            A beküldés gombra kattintva elfogadod az <a href="/privacy" target="_blank" rel="noopener noreferrer">adatkezelési tájékoztatót</a>.
+          </p>
           <ul className="actions">
             <li>
               <input type="reset" value="Töröl" className="reset-button" onClick={resetFormAndErrors} />
