@@ -23,7 +23,7 @@ jobs:
           experimental: true
           mise_toml: |
             [tools]
-            node ${{ matrix.node-version }}
+            node = "${{ matrix.node-version }}"
       - run: npm ci
       - name: Build and Statically Render
         run: npm run build
