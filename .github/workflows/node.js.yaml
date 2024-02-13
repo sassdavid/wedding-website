@@ -21,7 +21,7 @@ jobs:
         uses: jdx/mise-action@v2
         with:
           experimental: true
-          mise: |
+          mise_toml: |
             [tools]
             node ${{ matrix.node-version }}
       - run: npm ci
