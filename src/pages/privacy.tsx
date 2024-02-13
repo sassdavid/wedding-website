@@ -1,14 +1,11 @@
 import React from 'react';
-import { SiGnuprivacyguard } from 'react-icons/si';
 import Layout from '../components/layout';
 import SEO from '@/components/Seo';
 
 const Privacy = () => (
   <Layout>
     <div
-      className="wrapper"
-      style={{ textAlign: 'center' }}>
-      <SiGnuprivacyguard style={{ fontSize: '128px', color: 'gray' }} />
+      className="wrapper">
       <h1>Adatkezelési tájékoztató</h1>
       <h2>Adatkezelési tájékoztató / Adatvédelmi és jogi nyilatkozat</h2>
       <p>
@@ -137,7 +134,8 @@ const Privacy = () => (
         Ez segít számunkra, hogy a későbbiekben még átláthatóbbá, könnyebben használhatóvá tegyük a weboldalt.
         E sütik nem képesek téged személy szerint beazonosítani, például nem rögzítjük a neved és email címed;
         az adatokat összesítve és névtelenül tárolják. Az IP címet is csak részben rögzítik.<br />
-        További információ: https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage<br />
+        További információ: <a
+        href="https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage">Developers Google</a><br />
         Bizonyos céloldalak meglátogatása esetén a felhasználó eszközére harmadik fél általi sütiket (pl. Google AdWords Conversion Tracking)
         is elhelyezhetünk. Ezek biztosítják kampányaink sikerességének mérését. Beazonosítást lehetővé tevő információkat ennél a
         sütinél sem tárolunk.

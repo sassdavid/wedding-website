@@ -6,35 +6,54 @@
 
 /* Wrapper */
 
-	#wrapper {
-		@include vendor('display', 'flex');
-		@include vendor('flex-direction', 'column');
-		@include vendor('align-items', 'center');
-		@include vendor('justify-content', 'space-between');
-		position: relative;
-		min-height: 100vh;
-		width: 100%;
-		padding: 4rem 2rem;
-		z-index: 3;
+#wrapper {
+  @include vendor('display', 'flex');
+  @include vendor('flex-direction', 'column');
+  @include vendor('align-items', 'center');
+  @include vendor('justify-content', 'space-between');
+  display: inline-block;
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  z-index: 3;
 
-		&:before {
-			content: '';
-			display: block;
-		}
+  &:before {
+    content: '';
+    display: block;
+  }
 
-		@include breakpoint(xlarge) {
-			padding: 3rem 2rem;
-		}
+  @include breakpoint(xlarge) {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
 
-		@include breakpoint(small) {
-			padding: 2rem 1rem;
-		}
+  @include breakpoint(medium) {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
 
-		@include breakpoint(xsmall) {
-			padding: 1rem;
-		}
+  @include breakpoint(small) {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-size: 0.9rem;
+  }
 
-		&.page {
-			@include vendor('justify-content', 'flex-start');
-		}
-	}
+  @include breakpoint(xsmall) {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  @include breakpoint(xxsmall) {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-size: 0.7rem;
+  }
+
+  &.page {
+    @include vendor('justify-content', 'flex-start');
+  }
+}
