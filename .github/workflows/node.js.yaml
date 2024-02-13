@@ -9,21 +9,14 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-22.04
     timeout-minutes: 10
-    strategy:
-      matrix:
-        node-version: [20]
-        os: [ubuntu-22.04, macos-latest]
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
         uses: jdx/mise-action@v2
         with:
           experimental: true
-          mise_toml: |
-            [tools]
-            node = "${{ matrix.node-version }}"
       - run: npm ci --legacy-peer-deps
       - name: Build
         run: npm run build
