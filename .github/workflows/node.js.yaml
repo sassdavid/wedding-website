@@ -12,11 +12,13 @@ jobs:
     runs-on: ubuntu-22.04
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Checkout from GitHub repository
+        uses: actions/checkout@v4
+      - name: Init environment with mise
         uses: jdx/mise-action@v2
         with:
           experimental: true
-      - run: npm ci --legacy-peer-deps
-      - name: Build
+      - name: Install node modules
+        run: npm ci --legacy-peer-deps
+      - name: Build application
         run: npm run build
