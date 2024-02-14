@@ -5,7 +5,7 @@ import Layout from '../components/layout';
 
 const NotFound = () => (
   <Layout className="not-found-page">
-    <div className="wrapper not-found-page-wrapper" style={{ textAlign: 'center' }}>
+    <div className="wrapper not-found-page-wrapper">
       <header>
         <RiSkullLine style={{ fontSize: '6rem', color: 'gray', paddingBottom: '0.5rem' }} />
         <h1>Oops valami nem várt dolog történt!</h1>
