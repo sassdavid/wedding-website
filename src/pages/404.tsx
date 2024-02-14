@@ -1,41 +1,20 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { RiArrowLeftSLine, RiBugLine, RiSkullLine } from 'react-icons/ri';
+import { RiArrowLeftSLine, RiSkullLine } from 'react-icons/ri';
 import Layout from '../components/layout';
 
 const NotFound = () => (
   <Layout className="not-found-page">
     <div
-      className="wrapper"
-      style={{
-        textAlign: 'center',
-      }}>
+      className="wrapper" style={{ textAlign: 'center' }}>
       <header>
-        <RiSkullLine
-          style={{
-            fontSize: '128px',
-            color: 'gray',
-          }} />
-        <h1>Oops we did not expect that to happen!</h1>
-        <p>Have you wondered into the unknown. Let us help you, Please take a look at below options</p>
+        <RiSkullLine style={{ fontSize: '5rem', color: 'gray' }} />
+        <h1>Oops valami nem várt dolog történt!</h1>
+        <p>Úgy tűnik, hogy az általad keresett oldal nem található.</p>
       </header>
       <Link to="/" className="button">
-        <RiArrowLeftSLine
-          className="button-icon"
-          style={{
-            fontSize: '1.5rem',
-            color: 'gray',
-          }} />
-        Back to Homepage
-      </Link>
-      <Link to="https://twitter.com/donboulton" className="button -outline">
-        Report this
-        <RiBugLine
-          className="button-icon"
-          style={{
-            fontSize: '1.5rem',
-            color: 'gray',
-          }} />
+        <RiArrowLeftSLine className="button-icon" style={{ fontSize: '1.5rem', color: 'gray' }} />
+        Vissza a főoldalra
       </Link>
     </div>
   </Layout>

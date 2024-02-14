@@ -7,13 +7,11 @@
 /* Wrapper */
 
 #wrapper {
-  @include vendor('display', 'flex');
+  @include vendor('display', 'inline-block');
   @include vendor('flex-direction', 'column');
   @include vendor('align-items', 'center');
   @include vendor('justify-content', 'space-between');
-  display: inline-block;
   position: relative;
-  min-height: 100vh;
   width: 100%;
   padding-top: 1rem;
   padding-left: 1.5rem;
@@ -57,3 +55,13 @@
     @include vendor('justify-content', 'flex-start');
   }
 }
+
+.thanks-page-wrapper {
+  @include vendor('display', 'flex');
+  @include vendor('flex-direction', 'column');
+  @include vendor('align-items', 'center');
+  @include vendor('justify-content', 'center');
+  padding-top: calc(_size(element-margin) * 4.5);
+  text-align: center;
+}
+
