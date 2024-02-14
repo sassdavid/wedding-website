@@ -303,11 +303,13 @@ const Rsvp = (props) => {
                 </select>
                 <ErrorMessage message={errors['dinner']} />
               </div>
-              <div className={`field ${formData.alone === 'no' ? 'half' : ''}`}>
-                <label htmlFor="shottype">Kedvenc rövidital(ok)</label>
-                <input type="text" name="shottype" id="shottype" value={formData.shottype} onChange={handleChange} maxLength="60" />
-                <ErrorMessage message={errors['shottype']} />
-              </div>
+              {formData.dinner === 'yes' && (
+                <div className={`field ${formData.alone === 'no' ? 'half' : ''}`}>
+                  <label htmlFor="shottype">Kedvenc rövidital(ok)</label>
+                  <input type="text" name="shottype" id="shottype" value={formData.shottype} onChange={handleChange} maxLength="60" />
+                  <ErrorMessage message={errors['shottype']} />
+                </div>
+              )}
             </React.Fragment>
           )}
           <div className="field">

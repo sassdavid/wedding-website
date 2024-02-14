@@ -4,8 +4,7 @@ import SEO from '@/components/Seo';
 
 const Privacy = () => (
   <Layout>
-    <div
-      className="wrapper">
+    <div className="wrapper">
       <h1>Adatkezelési tájékoztató</h1>
       <h2>Adatkezelési tájékoztató / Adatvédelmi és jogi nyilatkozat</h2>
       <p>

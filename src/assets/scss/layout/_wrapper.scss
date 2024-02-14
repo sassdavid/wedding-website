@@ -13,9 +13,7 @@
   @include vendor('justify-content', 'space-between');
   position: relative;
   width: 100%;
-  padding-top: 1rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding: 4rem 2rem;
   z-index: 3;
 
   &:before {
@@ -62,6 +60,12 @@
   @include vendor('flex-direction', 'column');
   @include vendor('align-items', 'center');
   @include vendor('justify-content', 'center');
-  padding-top: calc(_size(element-margin) * 4.5);
+  padding-top: calc(_size(element-margin) * 2.5);
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   text-align: center;
+}
+
+.not-found-page-wrapper {
+  padding: _size(element-margin) * 0.25 0 0 0;
 }
