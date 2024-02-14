@@ -12,14 +12,14 @@ const Thanks = () => {
   return (
     <Layout>
       <div className="wrapper thanks-page-wrapper">
-        <RiCheckboxCircleLine style={{ fontSize: '5rem', color: 'gray' }} />
+        <RiCheckboxCircleLine style={{ fontSize: '5.5rem', color: 'gray', paddingBottom: '0.5rem' }} />
         {!fillerEmail && (
           <React.Fragment>
             <h2>Köszönjük {fillerName},</h2>
             <p>hogy kitöltötted az űrlapot, és ezzel jelezted, hogy részt tudsz-e venni az esküvőnkön!</p>
             <p>
-              Bármilyen extra kérés esetén keress minket a privát elérhetőségeink egyiként vagy
-              írj <a href="mailto:kovacs.bianka4@gmail.com;david.sass14@gmail.com">email-t</a>.
+              Bármilyen extra kérés esetén keress minket a privát elérhetőségeink egyikén vagy
+              írj nekünk <a href="mailto:kovacs.bianka4@gmail.com;david.sass14@gmail.com">emailt</a>.
             </p>
           </React.Fragment>
         )}
@@ -28,8 +28,8 @@ const Thanks = () => {
             <h2>Kedves {fillerName},</h2>
             <p>korábban már kitöltötted az űrlapot a(z) {fillerEmail} címmel!</p>
             <p>
-              Amennyiben bármilyen módosítást szeretnél felénk jelezni, keress minket a privát elérhetőségeink egyiként vagy
-              írj <a href="mailto:kovacs.bianka4@gmail.com;david.sass14@gmail.com">email-t</a>.
+              Amennyiben bármilyen módosítást szeretnél felénk jelezni, keress minket a privát elérhetőségeink egyikén vagy
+              írj nekünk <a href="mailto:kovacs.bianka4@gmail.com;david.sass14@gmail.com">emailt</a>.
             </p>
           </React.Fragment>
         )}

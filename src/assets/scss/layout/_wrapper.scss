@@ -56,7 +56,8 @@
   }
 }
 
-.thanks-page-wrapper {
+.thanks-page-wrapper,
+.not-found-page-wrapper {
   @include vendor('display', 'flex');
   @include vendor('flex-direction', 'column');
   @include vendor('align-items', 'center');
@@ -64,4 +65,3 @@
   padding-top: calc(_size(element-margin) * 4.5);
   text-align: center;
 }
-
