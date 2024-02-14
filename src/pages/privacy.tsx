@@ -4,7 +4,7 @@ import SEO from '@/components/Seo';
 
 const Privacy = () => (
   <Layout>
-    <div className="wrapper">
+    <div className="wrapper wrapper-privacy page">
       <h1>Adatkezelési tájékoztató</h1>
       <h2>Adatkezelési tájékoztató / Adatvédelmi és jogi nyilatkozat</h2>
       <p>
@@ -134,7 +134,7 @@ const Privacy = () => (
         E sütik nem képesek téged személy szerint beazonosítani, például nem rögzítjük a neved és email címed;
         az adatokat összesítve és névtelenül tárolják. Az IP címet is csak részben rögzítik.<br />
         További információ: <a
-        href="https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage">Developers Google</a><br />
+        href="https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage" target="_blank" rel="noopener noreferrer">Developers Google</a><br />
         Bizonyos céloldalak meglátogatása esetén a felhasználó eszközére harmadik fél általi sütiket (pl. Google AdWords Conversion Tracking)
         is elhelyezhetünk. Ezek biztosítják kampányaink sikerességének mérését. Beazonosítást lehetővé tevő információkat ennél a
         sütinél sem tárolunk.
@@ -161,9 +161,12 @@ const Privacy = () => (
       <p>Böngészőjében lehetősége van a sütik beállításait megváltoztatni, kezelni. A legtöbb böngészőnél alapbeállítás, hogy a sütiket automatikusan elfogadja, de ez később módosítható.</p>
       <p>Az alábbi linkeken segítséget talál a sütik beállításához:</p>
       <p>
-        https://support.google.com/chrome/answer/95647?hl=hu<br />
-        https://support.mozilla.org/hu/kb/sutik-informacio-amelyet-weboldalak-tarolnak-szami<br />
-        https://support.microsoft.com/hu-hu/windows/cookie-k-t%C3%B6rl%C3%A9se-%C3%A9s-kezel%C3%A9se-168dab11-0753-043d-7c16-ede5947fc64d<br />
+        <a href="https://support.google.com/chrome/answer/95647?hl=hu" target="_blank" rel="noopener noreferrer">support.google.com</a><br />
+        <a href="https://support.mozilla.org/hu/kb/sutik-informacio-amelyet-weboldalak-tarolnak-szami" target="_blank"
+           rel="noopener noreferrer">support.mozilla.org</a><br />
+        <a
+          href="https://support.microsoft.com/hu-hu/windows/cookie-k-t%C3%B6rl%C3%A9se-%C3%A9s-kezel%C3%A9se-168dab11-0753-043d-7c16-ede5947fc64d"
+          target="_blank" rel="noopener noreferrer">support.microsoft.com</a><br />
       </p>
       <p>
         Habár a sütiket le is tilthatja vagy korlátozhatja, kérjük, megfontoltan járjon el ezzel kapcsolatban, hiszen weboldalunk problémamentes
@@ -173,9 +176,13 @@ const Privacy = () => (
       <p>Ahhoz, hogy megakadályozd, hogy a Google Analytics sütik rád vonatkozó információkat gyűjtsenek, telepítened kell egy kiegészítőt (Google Analytics plug-in) a böngésződbe.</p>
       <h4>Erről további információ az alábbi linkeken található</h4>
       <p>
-        A sütik letilthatók a Google szolgáltatásaiban is, a Google reklámok letiltására vonatkozó oldalán: http://www.google.com/intl/hu/policies/technologies/ads/<br />
-        A felhasználó gépén tárolt Google információkat az alábbi oldalon lehet kezelni: https://www.google.com/settings/ads/preferences/<br />
-        „Google adatvédelem és biztonság” témában tovább olvashatsz itt: https://support.google.com/analytics/answer/6004245
+        A sütik letilthatók a Google szolgáltatásaiban is, a Google reklámok letiltására vonatkozó oldalán: <a
+        href="https://policies.google.com/technologies/ads?hl=hu" target="_blank" rel="noopener noreferrer">policies.google.com</a><br />
+        A felhasználó gépén tárolt Google információkat az alábbi oldalon lehet kezelni: <a
+        href="https://myadcenter.google.com/personalizationoff?sasb=true&ref=ad-settings" target="_blank"
+        rel="noopener noreferrer">myadcenter.google.com</a><br />
+        „Google adatvédelem és biztonság” témában tovább olvashatsz itt: <a href="https://support.google.com/analytics/answer/6004245" target="_blank"
+                                                                            rel="noopener noreferrer">Adatok védelme (support.google.com)</a>
       </p>
       <div>
         <h2>Az adatkezelő elérhetőségei</h2>

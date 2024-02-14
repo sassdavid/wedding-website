@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import { RiArrowLeftSLine, RiCheckboxCircleLine } from 'react-icons/ri';
 import Layout from '../components/layout';
 import { useLocation } from '@reach/router';
+import SEO from '@/components/Seo';
 
 const Thanks = () => {
   const location = useLocation();
@@ -11,7 +12,7 @@ const Thanks = () => {
 
   return (
     <Layout>
-      <div className="wrapper thanks-page-wrapper">
+      <div className="wrapper page">
         <RiCheckboxCircleLine style={{ fontSize: '5.5rem', color: 'gray', paddingBottom: '0.5rem' }} />
         {!fillerEmail && (
           <React.Fragment>
@@ -41,5 +42,9 @@ const Thanks = () => {
   </Layout>
   );
 };
+
+export const Head = () => (
+  <SEO title="Bianka & David | Thanks" />
+);
 
 export default Thanks;

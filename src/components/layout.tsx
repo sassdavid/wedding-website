@@ -1,26 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
 import CookieConsent from 'react-cookie-consent';
 import { SiGnuprivacyguard } from 'react-icons/si';
 import '../assets/scss/main.scss';
 
-const Layout = ({ children, location }) => {
-  let content;
-
-  if ( location && location.pathname === '/' ) {
-    content = <div>{children}</div>;
-  } else {
-    content = (
-      <div id="wrapper" className="page">
-        <div>{children}</div>
-      </div>
-    );
-  }
-
+const Layout = ({ children }) => {
   return (
     <>
-      {content}
+      <div>{children}</div>
       <CookieConsent
         enableDeclineButton
         flipButtons

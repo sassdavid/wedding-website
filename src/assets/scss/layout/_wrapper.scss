@@ -12,6 +12,7 @@
   @include vendor('align-items', 'center');
   @include vendor('justify-content', 'space-between');
   position: relative;
+  min-height: 100vh;
   width: 100%;
   padding: 4rem 2rem;
   z-index: 3;
@@ -22,31 +23,15 @@
   }
 
   @include breakpoint(xlarge) {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
-
-  @include breakpoint(medium) {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding: 3rem 2rem;
   }
 
   @include breakpoint(small) {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    font-size: 0.9rem;
+    padding: 2rem 1rem;
   }
 
   @include breakpoint(xsmall) {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    font-size: 0.8rem;
-  }
-
-  @include breakpoint(xxsmall) {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    font-size: 0.7rem;
+    padding: 1rem;
   }
 
   &.page {
@@ -54,11 +39,52 @@
   }
 }
 
-.thanks-page-wrapper,
-.not-found-page-wrapper {
+.wrapper {
+  @include vendor('display', 'flex');
+  @include vendor('flex-direction', 'column');
+  @include vendor('align-items', 'center');
+  @include vendor('justify-content', 'space-between');
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  padding: _size(element-margin) * 5.5 0rem;
+  z-index: 3;
   text-align: center;
-}
 
-.thanks-page-wrapper {
-  padding: _size(element-margin) * 2 0 0 0;
+  &:before {
+    content: '';
+    display: block;
+  }
+
+  @include breakpoint(xlarge) {
+    padding: _size(element-margin) * 6.5 3rem;
+  }
+
+  @include breakpoint(large) {
+    padding: _size(element-margin) * 6.5 2rem;
+  }
+
+  @include breakpoint(medium) {
+    padding: _size(element-margin) * 8.5 2rem;
+  }
+
+  @include breakpoint(small) {
+    padding: _size(element-margin) * 5.5 1.5rem;
+  }
+
+  @include breakpoint(xsmall) {
+    padding: _size(element-margin) * 5.5 1rem;
+  }
+
+  @include breakpoint(xxsmall) {
+    padding: _size(element-margin) * 6.5 1rem;
+  }
+
+  &.page {
+    @include vendor('justify-content', 'flex-start');
+  }
+
+  &.wrapper-privacy {
+    padding: _size(element-margin) 1rem;
+  }
 }
