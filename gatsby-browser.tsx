@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import type { GatsbyBrowser } from 'gatsby';
 import Layout from './src/components/layout';
 import '@fontsource/roboto';
-import '@fontsource/codystar';
+import '@fontsource/montserrat-alternates';
 
 export const replaceHydrateFunction = () => {
   return (element, container) => {

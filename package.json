@@ -7,7 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "@fontsource/roboto": "^5.0.8",
-    "@fontsource/codystar": "^5.0.18",
+    "@fontsource/montserrat-alternates": "^5.0.8",
     "@gatsbyjs/reach-router": "^2.0.1",
     "crypto-js": "^4.2.0",
     "gatsby": "^5.13.3",

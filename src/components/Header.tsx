@@ -10,7 +10,7 @@ const Header = props => (
     </div>
     <div className="content">
       <div className="inner">
-        <h1 style={{fontFamily: 'Codystar, system-ui'}}>Bianka & Dávid</h1>
+        <h1 style={{fontFamily: 'Montserrat Alternates, sans-serif'}}>Bianka & Dávid</h1>
         <p>
           Ezen az oldalon találod az esküvőnkkel kapcsolatos fontos információkat.
           <br />
