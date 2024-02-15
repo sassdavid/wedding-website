@@ -37,8 +37,8 @@ const config: GatsbyConfig = {
         name: 'Bianka & David',
         short_name: 'Bianka & David',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
+        background_color: '#253822',
+        theme_color: '#253822',
         display: 'minimal-ui',
         icon: 'static/assets/wedding-rings-icon.png', // This path is relative to the root of the site.
       },

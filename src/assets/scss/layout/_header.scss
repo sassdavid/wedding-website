@@ -360,9 +360,10 @@
 
   .countdown-timer {
     display: inline-block;
-    font-size: 1rem;
-    font-weight: 500;
-    animation: pulse 2s infinite linear;
+    font-size: 1.25rem;
+    font-weight: bold;
+    font-family: 'Codystar', system-ui;
+    //animation: pulse 2s infinite linear;
 
     @include breakpoint(small) {
       font-size: 0.9rem;
@@ -371,8 +372,6 @@
 
   .countdown-timer-event-passed {
     display: inline-block;
-    font-size: 1rem;
-    font-weight: 500;
 
     @include breakpoint(small) {
       font-size: 0.9rem;

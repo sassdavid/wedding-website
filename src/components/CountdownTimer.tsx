@@ -42,7 +42,7 @@ const CountdownTimer = ({ toDateWithHour }) => {
   return (
     <span className={timerClass}>
       {eventPassed
-        ? 'Az esemény már lezajlott.'
+        ? 'Az esemény már lezajlott, kérjük töltsd fel az általad készített képeket, videókat.'
         : `${timeLeft.days} nap, ${timeLeft.hours} óra, ${timeLeft.minutes} perc, ${timeLeft.seconds} másodperc`}
     </span>
   );

@@ -10,9 +10,9 @@ const Header = props => (
     </div>
     <div className="content">
       <div className="inner">
-        <h1>Bianka & Dávid</h1>
+        <h1 style={{fontFamily: 'Codystar, system-ui'}}>Bianka & Dávid</h1>
         <p>
-          Ezen az oldalon találod az eskövőnkkel kapcsolatos fontos információkat.
+          Ezen az oldalon találod az esküvőnkkel kapcsolatos fontos információkat.
           <br />
           <br className="just-margin" />
           Visszaszámlálás:

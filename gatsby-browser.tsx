@@ -2,6 +2,8 @@ import * as React from 'react';
 import ReactDOM from 'react-dom/client';
 import type { GatsbyBrowser } from 'gatsby';
 import Layout from './src/components/layout';
+import '@fontsource/roboto';
+import '@fontsource/codystar';
 
 export const replaceHydrateFunction = () => {
   return (element, container) => {
