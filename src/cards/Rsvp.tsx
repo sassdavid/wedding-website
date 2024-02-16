@@ -23,7 +23,7 @@ const Rsvp = (props) => {
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
-  const secretHash: string = '13df49eeb1f666dbdc7242d3137a327ce9ff84b8d9a348d20e1c67eae4befb9cb86e4af0722c0ce61c37dc550c1fa9bec92a665af4d42dcdd3bab582c2c76e0a';
+  const secretHash: string = '427ab412f0e7a7fa1c6623b3ac4afdd4ee37e84256fd66a2bf010c70f81d755ab577ef706263944d8e81818d8e90b230eb0e8bfd0b1f23a7a2777789d9c8202b';
   const emailRegex: RegExp = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
   const phonenumberRegex: RegExp = /^(\+?(36|49)[ -]?)?(\(?\d{1,3}\)?[ -]?)?(\d[ -]?){6,10}$/;
 
@@ -92,7 +92,7 @@ const Rsvp = (props) => {
       });
     }
 
-    const hashedPassphrase: string = CryptoJS.SHA3(formData.passphrase, { outputLength: 512 }).toString();
+    const hashedPassphrase: string = CryptoJS.SHA3(formData.passphrase.toLowerCase(), { outputLength: 512 }).toString();
     if ( hashedPassphrase !== secretHash ) {
       newErrors['passphrase'] = 'Hibás jelszó!';
     }
