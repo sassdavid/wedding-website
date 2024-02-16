@@ -11,8 +11,7 @@ import Menu from '@/cards/Menu';
 const Main = props => (
   <div ref={props.setWrapperRef} id="main" style={props.timeout ? { display: 'flex' } : { display: 'none' }}>
     <Invitation articleClassName={`${props.article === 'invitation' ? 'active' : ''} ${props.articleTimeout ? 'timeout' : ''}`}
-                style={{ display: 'none' }}
-                onCloseArticle={props.onCloseArticle} />
+                style={{ display: 'none' }} onCloseArticle={props.onCloseArticle} />
 
     <Venue articleClassName={`${props.article === 'venue' ? 'active' : ''} ${props.articleTimeout ? 'timeout' : ''}`} style={{ display: 'none' }}
            onCloseArticle={props.onCloseArticle} />
@@ -21,12 +20,10 @@ const Main = props => (
              onCloseArticle={props.onCloseArticle} />
 
     <Proposal articleClassName={`${props.article === 'proposal' ? 'active' : ''} ${props.articleTimeout ? 'timeout' : ''}`}
-              style={{ display: 'none' }}
-              onCloseArticle={props.onCloseArticle} />
+              style={{ display: 'none' }} onCloseArticle={props.onCloseArticle} isVideoVisible={props.isVideoVisible} />
 
     <SeatingChart articleClassName={`${props.article === 'seatingchart' ? 'active' : ''} ${props.articleTimeout ? 'timeout' : ''}`}
-                  style={{ display: 'none' }}
-                  onCloseArticle={props.onCloseArticle} />
+                  style={{ display: 'none' }} onCloseArticle={props.onCloseArticle} />
 
     <Menu articleClassName={`${props.article === 'menu' ? 'active' : ''} ${props.articleTimeout ? 'timeout' : ''}`} style={{ display: 'none' }}
           onCloseArticle={props.onCloseArticle} />
@@ -43,6 +40,7 @@ Main.propTypes = {
   onCloseArticle: PropTypes.func,
   timeout: PropTypes.bool,
   setWrapperRef: PropTypes.func.isRequired,
+  isVideoVisible: PropTypes.bool.isRequired,
 };
 
 export default Main;

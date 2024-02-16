@@ -19,6 +19,7 @@ class IndexPage extends React.Component<any, any> {
       articleTimeout: false,
       article: '',
       loading: 'is-loading',
+      isVideoVisible: false,
     };
     this.handleOpenArticle = this.handleOpenArticle.bind(this);
     this.handleCloseArticle = this.handleCloseArticle.bind(this);
@@ -26,55 +27,61 @@ class IndexPage extends React.Component<any, any> {
     this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
-  componentDidMount() {
-    this.timeoutId = setTimeout(() => {
+  componentDidMount(): void {
+    this.timeoutId = setTimeout((): void => {
       this.setState({ loading: '' });
     }, 100);
     document.addEventListener('mousedown', this.handleClickOutside);
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     if ( this.timeoutId ) {
       clearTimeout(this.timeoutId);
     }
     document.removeEventListener('mousedown', this.handleClickOutside);
   }
 
-  setWrapperRef(node) {
+  setWrapperRef(node): void {
     this.wrapperRef = node;
   }
 
-  handleOpenArticle(article) {
-    this.setState({
+  handleOpenArticle(article): void {
+    const isOpeningProposal: boolean = article === 'proposal';
+
+    this.setState(prevState => ({
       isArticleVisible: !this.state.isArticleVisible,
       article,
-    });
+      isVideoVisible: isOpeningProposal ? true : prevState.isVideoVisible,
+    }));
 
-    setTimeout(() => {
+    setTimeout((): void => {
       this.setState({
         timeout: !this.state.timeout,
       });
     }, 325);
 
-    setTimeout(() => {
+    setTimeout((): void => {
       this.setState({
         articleTimeout: !this.state.articleTimeout,
       });
     }, 350);
   }
 
-  handleCloseArticle() {
-    this.setState({
-      articleTimeout: !this.state.articleTimeout,
-    });
+  handleCloseArticle(): void {
+    const isClosingProposal: boolean = this.state.article === 'proposal';
 
-    setTimeout(() => {
+    this.setState(prevState => ({
+      articleTimeout: !this.state.articleTimeout,
+      isVideoVisible: isClosingProposal ? false : prevState.isVideoVisible,
+    }));
+
+    setTimeout((): void => {
       this.setState({
         timeout: !this.state.timeout,
       });
     }, 325);
 
-    setTimeout(() => {
+    setTimeout((): void => {
       this.setState({
         isArticleVisible: !this.state.isArticleVisible,
         article: '',
@@ -82,7 +89,7 @@ class IndexPage extends React.Component<any, any> {
     }, 350);
   }
 
-  handleClickOutside(event) {
+  handleClickOutside(event): void {
     if ( this.wrapperRef && event.target.id == 'wrapper' ) {
       if ( this.state.isArticleVisible ) {
         this.handleCloseArticle();
@@ -102,7 +109,8 @@ class IndexPage extends React.Component<any, any> {
               articleTimeout={this.state.articleTimeout}
               article={this.state.article}
               onCloseArticle={this.handleCloseArticle}
-              setWrapperRef={this.setWrapperRef} />
+              setWrapperRef={this.setWrapperRef}
+              isVideoVisible={this.state.isVideoVisible} />
             <Footer timeout={this.state.timeout} />
           </div>
           <div id="bg">

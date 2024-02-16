@@ -1,0 +1,32 @@
+.embedded-video {
+  margin-bottom: 3rem;
+}
+
+.image-gallery {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.image-paginator {
+  @include vendor('display', 'flex');
+  @include vendor('align-items', 'center');
+  @include vendor('justify-content', 'center');
+  gap: 0.5rem;
+  color: white;
+}
+
+.paginator-icon {
+  cursor: pointer;
+  opacity: 1;
+  font-size: 1.75rem;
+}
+
+.disabled-paginator-icon {
+  cursor: default;
+  opacity: 0.5;
+  font-size: 1.75rem;
+}
+
+.page-indicator {
+  user-select: none;
+}
