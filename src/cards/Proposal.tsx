@@ -8,7 +8,7 @@ import { useSwipeable } from 'react-swipeable';
 
 const Proposal = props => {
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = 3;
+  const totalPages = 4;
 
   const prevPage = () => {
     setCurrentPage(currentPage => Math.max(1, currentPage - 1));
@@ -29,11 +29,13 @@ const Proposal = props => {
   const renderCurrentImage = () => {
     switch ( currentPage ) {
       case 1:
-        return <StaticImage formats={['auto', 'webp']} src="../../static/assets/pic01.jpg" alt="Proposal" />;
+        return <StaticImage formats={['auto', 'webp']} src="../../static/assets/proposal01.jpg" alt="Proposal_1" />;
       case 2:
-        return <StaticImage formats={['auto', 'webp']} src="../../static/assets/pic02.jpg" alt="Proposal" />;
+        return <StaticImage formats={['auto', 'webp']} src="../../static/assets/proposal02.jpg" alt="Proposal_2" />;
       case 3:
-        return <StaticImage formats={['auto', 'webp']} src="../../static/assets/pic03.jpg" alt="Proposal" />;
+        return <StaticImage formats={['auto', 'webp']} src="../../static/assets/proposal03.jpg" alt="Proposal_3" />;
+      case 4:
+        return <StaticImage formats={['auto', 'webp']} src="../../static/assets/proposal04.jpg" alt="Proposal_4" />;
       default:
         return null;
     }
@@ -44,7 +46,8 @@ const Proposal = props => {
       <h2 className="major">Lánykérés</h2>
 
       <div className="embedded-video" style={{ marginBottom: '2rem' }}>
-        {/*{props.isVideoVisible && <Video videoSrcURL="" videoTitle="Lánykérés 2023" />}*/}
+        {props.isVideoVisible &&
+          <Video videoSrcURL="https://www.youtube.com/embed/2LCCz5mzig4?si=Wwde3cFJuyXKikl0&amp" videoTitle="Lánykérés 2023" />}
       </div>
 
       <div {...handlers} className="image-gallery" style={{ marginBottom: '1rem' }}>

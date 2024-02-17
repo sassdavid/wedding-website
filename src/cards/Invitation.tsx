@@ -7,21 +7,17 @@ const Invitation = (props) => (
   <Card id="invitation" style={props.style} onCloseArticle={props.onCloseArticle} articleClassName={props.articleClassName}>
     <h2 className="major">Meghívó</h2>
     <span className="image main">
-        <StaticImage formats={['auto', 'webp']} src="../../static/assets/pic01.jpg" alt="Invitation" />
+      <StaticImage formats={['auto', 'webp']} src="../../static/assets/bd-wedding-invitation.png" alt="Invitation" />
     </span>
-    <p>
-      Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue.
-      Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi
-      nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#venue">awesome work</a>.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti
-      sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh
-      porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum.
-      Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in
-      aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
-      turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed
-      vehicula.
+
+    <p style={{ textAlign: 'center' }}>
+      Azt kérded magadban, mit vegyek?<br/>
+      Minek örülnének?<br/>
+      Megsúgom én halkan: egy hajlék melegének.<br/>
+      Borítékba tedd hát, mit ajándékra szántál,<br/>
+      Hogy rajta álljon neved egy-egy sor téglán!<br/>
+      S ha miénk lett már az a meghitt otthon,<br/>
+      Szíves vendég leszel, ezt ígérhetjük bizton!<br/>
     </p>
   </Card>
 );
