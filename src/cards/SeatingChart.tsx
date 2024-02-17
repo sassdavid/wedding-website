@@ -7,19 +7,8 @@ const SeatingChart = (props) => (
   <Card id="SeatingChart" style={props.style} onCloseArticle={props.onCloseArticle} articleClassName={props.articleClassName}>
     <h2 className="major">Ültetési rend</h2>
     <span className="image main">
-        <StaticImage formats={['auto', 'webp']} src="../../static/assets/pic02.jpg" alt="SeatingChart" />
+        {/*<StaticImage formats={['auto', 'webp']} src="../../static/assets/pic02.jpg" alt="SeatingChart" />*/}
     </span>
-    <p>
-      Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam
-      erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec
-      lorem luctus ultrices.
-    </p>
-    <p>
-      Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc
-      rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel
-      lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis
-      libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat tempus.
-    </p>
   </Card>
 );
 
