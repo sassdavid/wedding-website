@@ -1,0 +1,30 @@
+.map-wrapper {
+  position: relative;
+  height: 50vh;
+  padding-bottom: 2rem;
+
+  @include breakpoint(large) {
+    height: 40vh;
+  }
+
+  @include breakpoint(medium) {
+    height: 40vh;
+  }
+
+  @include breakpoint(small) {
+    height: 30vh;
+  }
+
+  @include breakpoint(xsmall) {
+    height: 30vh;
+  }
+
+  @include breakpoint(xxsmall) {
+    height: 30vh;
+  }
+}
+
+.map-container {
+  height: 100%;
+  width: 100%;
+}

@@ -110,7 +110,8 @@ class IndexPage extends React.Component<any, any> {
               article={this.state.article}
               onCloseArticle={this.handleCloseArticle}
               setWrapperRef={this.setWrapperRef}
-              isVideoVisible={this.state.isVideoVisible} />
+              isVideoVisible={this.state.isVideoVisible}
+              isMapVisible={this.state.isMapVisible} />
             <Footer timeout={this.state.timeout} />
           </div>
           <div id="bg">
