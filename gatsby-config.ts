@@ -43,23 +43,6 @@ const config: GatsbyConfig = {
         icon: 'static/assets/wedding-rings-icon.png', // This path is relative to the root of the site.
       },
     },
-    {
-      resolve: `gatsby-plugin-google-gtag`,
-      options: {
-        trackingIds: [
-          'G-TLEJNJRDJ7',
-        ],
-        gtagConfig: {
-          anonymize_ip: true,
-          cookie_expires: 0,
-          cookie_name: 'gatsby-google-gtag',
-          send_page_views: true,
-        },
-        pluginConfig: {
-          respectDNT: true,
-        },
-      },
-    },
     'gatsby-plugin-sass',
     `gatsby-plugin-sitemap`,
     {
