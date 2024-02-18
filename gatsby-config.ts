@@ -44,34 +44,19 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-plugin-gdpr-cookies`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        googleAnalytics: {
-          trackingId: 'G-TLEJNJRDJ7', // leave empty if you want to disable the tracker
-          cookieName: 'gatsby-gdpr-google-analytics', // default
-          anonymize: true, // default
-          allowAdFeatures: false, // default
+        trackingIds: [
+          'G-TLEJNJRDJ7',
+        ],
+        gtagConfig: {
+          anonymize_ip: true,
+          cookie_expires: 0,
+          cookie_name: 'gatsby-google-gtag',
         },
-        googleTagManager: {
-          trackingId: '', // leave empty if you want to disable the tracker
-          cookieName: 'gatsby-gdpr-google-tagmanager', // default
-          dataLayerName: 'dataLayer', // default
+        pluginConfig: {
+          respectDNT: true,
         },
-        facebookPixel: {
-          pixelId: '', // leave empty if you want to disable the tracker
-          cookieName: 'gatsby-gdpr-facebook-pixel', // default
-        },
-        tikTokPixel: {
-          pixelId: '', // leave empty if you want to disable the tracker
-          cookieName: 'gatsby-gdpr-tiktok-pixel', // default
-        },
-        hotjar: {
-          hjid: '0000000',
-          hjsv: '6',
-          cookieName: 'gatsby-gdpr-hotjar', // default
-        },
-        // defines the environments where the tracking should be available  - default is ["production"]
-        environments: ['production', 'development'],
       },
     },
     'gatsby-plugin-sass',

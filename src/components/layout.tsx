@@ -14,7 +14,7 @@ const Layout = ({ children }) => {
         location="bottom"
         buttonText="Elfogad"
         declineButtonText="Elutasít"
-        cookieName="gatsby-gdpr-google-analytics"
+        cookieName="gatsby-google-gtag"
         style={{
           background: 'linear-gradient(to right, transparent, #171717)',
           textShadow: '2px 2px black',

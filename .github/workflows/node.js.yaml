@@ -19,6 +19,6 @@ jobs:
         with:
           experimental: true
       - name: Install node modules
-        run: npm ci --legacy-peer-deps
+        run: npm ci
       - name: Build application
         run: npm run build
