@@ -6,7 +6,7 @@
   "homepage": "https://biankaesdavid.info/",
   "license": "MIT",
   "dependencies": {
-    "@fontsource/montserrat-alternates": "^5.0.8",
+    "@fontsource-variable/orbitron": "^5.0.18",
     "@fontsource/roboto": "^5.0.8",
     "@gatsbyjs/reach-router": "^2.0.1",
     "crypto-js": "^4.2.0",
@@ -42,6 +42,13 @@
     "format": "prettier --write '**/*.js'",
     "fix:prettier": "prettier --write \"**/*.{css,ts,js,jsx,tsx,json,md,mdx}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "overrides": {
+    "gatsby-plugin-gdpr-cookies": {
+      "gatsby": "^2.24.77 || ^3.0.0 || ^4.0.0 || ^5.0.0",
+      "react": "^16.13.1 || ^17.0.1 || ^18.0.0",
+      "react-dom": "^16.13.1 || ^17.0.1 || ^18.0.0"
+    }
   },
   "browserslist": [
     "> 0.25%",
