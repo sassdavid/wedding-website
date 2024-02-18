@@ -53,6 +53,7 @@ const config: GatsbyConfig = {
           anonymize_ip: true,
           cookie_expires: 0,
           cookie_name: 'gatsby-google-gtag',
+          send_page_views: true,
         },
         pluginConfig: {
           respectDNT: true,
