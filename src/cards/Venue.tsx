@@ -95,7 +95,7 @@ const Venue = (props) => {
         {/*<StaticImage formats={['auto', 'webp']} src="../../static/assets/villa.jpg" alt="Venue" />*/}
       </span>
 
-      <LoadScript googleMapsApiKey={process.env.GOOGLE_MAPS_API_KEY}>
+      <LoadScript googleMapsApiKey={process.env.GATSBY_GOOGLE_MAPS_API_KEY}>
         <div className="map-wrapper">
           <GoogleMap
             mapContainerClassName="map-container"
