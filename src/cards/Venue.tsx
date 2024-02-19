@@ -87,6 +87,7 @@ const mapStyle = [
 const Venue = (props) => {
   const center = useMemo(() => ({ lat: 47.50530903649446, lng: 19.01786543666104 }), []);
 
+  // noinspection TypeScriptUnresolvedReference
   return (
     <Card id="venue" style={props.style} onCloseArticle={props.onCloseArticle} articleClassName={props.articleClassName}>
       <h2 className="major">A helyszín</h2>
@@ -94,7 +95,7 @@ const Venue = (props) => {
         {/*<StaticImage formats={['auto', 'webp']} src="../../static/assets/villa.jpg" alt="Venue" />*/}
       </span>
 
-      <LoadScript googleMapsApiKey="AIzaSyDtJR90y2xh4yKBLc9_E5tvqq4fnXSy1AI">
+      <LoadScript googleMapsApiKey={process.env.GOOGLE_MAPS_API_KEY}>
         <div className="map-wrapper">
           <GoogleMap
             mapContainerClassName="map-container"
