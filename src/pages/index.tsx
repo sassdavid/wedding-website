@@ -54,6 +54,15 @@ class IndexPage extends React.Component<any, any> {
       isVideoVisible: isOpeningProposal ? true : prevState.isVideoVisible,
     }));
 
+    // noinspection TypeScriptUnresolvedReference
+    if ( typeof window !== 'undefined' && window.dataLayer ) {
+      // noinspection TypeScriptUnresolvedReference
+      window.dataLayer.push({
+        event: 'menu_item_open',
+        menuItem: article,
+      });
+    }
+
     setTimeout((): void => {
       this.setState({
         timeout: !this.state.timeout,
