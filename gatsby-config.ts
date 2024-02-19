@@ -1,5 +1,9 @@
 import type { GatsbyConfig } from 'gatsby';
 
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 const config: GatsbyConfig = {
   siteMetadata: {
     title: 'Bianka & David',
@@ -29,6 +33,14 @@ const config: GatsbyConfig = {
           breakpoints: [750, 1080, 1366, 1920],
           backgroundColor: `transparent`,
         },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: process.env.GATSBY_GTM_ID,
+        includeInDevelopment: true,
+        enableWebVitalsTracking: true,
       },
     },
     {

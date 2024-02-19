@@ -24,3 +24,4 @@ jobs:
         run: npm run build
         env:
           GATSBY_GOOGLE_MAPS_API_KEY: ${{ secrets.GATSBY_GOOGLE_MAPS_API_KEY }}
+          GATSBY_GTM_ID: ${{ secrets.GATSBY_GTM_ID }}
