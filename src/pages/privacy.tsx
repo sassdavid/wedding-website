@@ -17,11 +17,11 @@ const Privacy = () => (
       <p>A Felhasználó jelen Adatvédelmi nyilatkozat elfogadásával hozzájárul az Adatkezelőnek az Adatkezelési Szabályzat szerinti adatkezeléséhez.</p>
       <p>
         A Weboldal használatának megkezdésével a Felhasználó elfogadja jelen tájékoztatóban foglalt valamennyi feltételt,
-        ill. az oldal böngészésével, ill. az ajánlatkérés elküldésével a Felhasználó elfogadja az adatkezelési elveket.
+        ill. az oldal böngészésével, ill. a visszajelző űrlap beküldésével a Felhasználó elfogadja az adatkezelési irányelveket.
       </p>
       <p>
         A Weboldal adatait kizárólag az Adatkezelő kezeli. Az adatok megadása önkéntes alapon, a Felhasználó hozzájárulásával történik.
-        Az adatok megadásának célja az esküvőnkön résztvevő emberek megszámolása, preferenciáik megismerése, ill. egyéb, az esküvőhöz kapcsolódo
+        Az adatok megadásának célja az esküvőnkön résztvevő emberek megszámolása, preferenciáik megismerése, ill. egyéb, az esküvőhöz kapcsolódó
         szervezési munkálatok zökkenőmentes lebonyolítása. Az Adatkezelő a megadott adatokat a 2001. évi CVIII. törvény figyelembe vételével kezeli,
         ill. tárolja, mindent megtesz az adatok biztonsága és sérthetetlensége érdekében és azok kezelésekor a személyes adatok védelméről
         és a közérdekű adatok nyilvánosságáról szóló 1992. évi LXIII. törvényben előírtaknak alapján jár el.
@@ -59,29 +59,29 @@ const Privacy = () => (
         adatainak írásbeli helyesbítésére személyazonosságának igazolásával és levelezési címének megadásával egyidejűleg.
       </p>
       <p>
-        A Felhasználónak jogában áll adatainak töröltetésére részben, vagy egészben, annak zároltatására indoklás nélkül személyazonosságának
+        A Felhasználónak jogában áll adatainak töröltetése részben, vagy egészben, annak zároltatása indoklás nélkül személyazonosságának
         igazolásával – az Adatkezelő haladéktalanul intézkedik a kérelem felől. Az adatok zárolása esetén amennyiben a törlés sértené a
         Felhasználó jogos érdekeit, a zárolt személyes adatok kizárólag addig kezelhetők, ameddig az adatkezelési cél fennáll.
       </p>
       <p>
-        A személyi adatok helyesbítéséről, a zárolásról, vagy a törlésről az Adatkezelő a Felhasználót, továbbá mindazokat értesíti,
+        A személyes adatok helyesbítéséről, a zárolásról, vagy a törlésről az Adatkezelő a Felhasználót, továbbá mindazokat értesíti,
         akiknek korábban az adatokat adatkezelés céljára továbbította. Az értesítés mellőzhető, ha ez az adatkezelés céljára való tekintettel
-        a Felhasználó jogos érdekét nem sérti. Amennyiben az Adatkezelő a Felhasználó helyesbítés, zárolás vagy törlés iránti kérelem jogilag
-        megalapozottan nem teljesíthető, az Adatkezelő a kérelmet követő 30 napon belül írásban közli a Felhasználóval,
+        a Felhasználó jogos érdekét nem sérti. Amennyiben az Adatkezelő a Felhasználó helyesbítés, zárolás vagy törlés iránti kérelmét jogilag
+        megalapozottan nem teljesítheti, az Adatkezelő a kérelmet követő 30 napon belül írásban közli a Felhasználóval,
         annak ténybeli és jogi indokait, a bírósági jogorvoslat, továbbá a Nemzeti Adatvédelmi és Információszabadság Hatósághoz
         történő fordulás lehetőségét.
       </p>
       <p>
         Az Adatkezelő minden tőle telhetőt megtesz a felvett személyi adatok biztonságos kezeléséért, tárolásáért, megakadályozza azok
         jogosulatlan felhasználását és megváltoztatását, illetéktelen személyek hozzáférését, az adatok megismerését.
-        Jogosultság hiányában azokat harmadik személynek nem adja át. Kötelezi magát arra is, hogy minden olyan harmadik felet,
-        akiknek az adatokat a Felhasználók hozzájárulása alapján továbbítja vagy átadja, felhívja, hogy eleget tegyenek az adatbiztonság követelményének.
+        Jogosultság hiányában azokat harmadik személynek nem adja át. Kötelezi magát arra is, hogy minden olyan harmadik fél figyelmét felhívja arra,
+         hogy tegyen eleget az adatbiztonsági követelményeknek, akiknek az adatokat a Felhasználók hozzájárulása alapján továbbítja vagy átadja.
       </p>
       <p>
         Az Adatkezelő az adatokhoz való jogosulatlan hozzáférés lehetőségét minden tőle telhető módon megakadályozza. Ennek ellenére
         Felhasználó elismeri és elfogadja, hogy fentebb részletezett személyes adatok a Weboldalon és levelezési fiókon keresztül történő
         megadása esetén az adatvédelem teljes mértékben nem garantálható az interneten. Az adatok jogosulatlan hozzáférésének fennállása
-        esetén az Adatkezelő nem felelős, sem az ebből keletkezett károkért.
+        esetén az Adatkezelő nem felelős az ebből keletkezett károkért.
       </p>
       <p>
         Az Adatkezelő kijelenti, hogy semmilyen célból és módon nem gyűjt különleges adatokat (például: faji eredet, nemzeti és etnikai
@@ -138,12 +138,6 @@ const Privacy = () => (
         Bizonyos céloldalak meglátogatása esetén a felhasználó eszközére harmadik fél általi sütiket (pl. Google AdWords Conversion Tracking)
         is elhelyezhetünk. Ezek biztosítják kampányaink sikerességének mérését. Beazonosítást lehetővé tevő információkat ennél a
         sütinél sem tárolunk.
-      </p>
-      <h3>Célzó vagy reklám sütik</h3>
-      <p>
-        Azzal kapcsolatban gyűjtenek információkat, hogy milyen témák, tartalmak érdekelhetnek. E sütik segítségével mérhető a kampányok
-        hatékonysága is és segítenek, hogy a későbbiekben releváns hirdetések jelenjenek meg számodra.
-        A célzó és reklám sütik nem tudnak beazonosítani, nem gyűjtenek a beazonosításhoz szükséges személyes információkat.
       </p>
       <h3>Használatot elősegítő, ún. funkcionális sütik</h3>
       <p>
