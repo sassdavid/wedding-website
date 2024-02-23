@@ -39,7 +39,7 @@ const config: GatsbyConfig = {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
         id: process.env.GATSBY_GTM_ID,
-        includeInDevelopment: true,
+        includeInDevelopment: false,
         enableWebVitalsTracking: true,
       },
     },
@@ -52,7 +52,7 @@ const config: GatsbyConfig = {
         background_color: '#343734ed',
         theme_color: '#343734ed',
         display: 'minimal-ui',
-        icon: 'static/assets/wedding-rings-icon.png', // This path is relative to the root of the site.
+        icon: 'static/assets/wedding-rings-icon.png',
       },
     },
     'gatsby-plugin-sass',

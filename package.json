@@ -10,6 +10,7 @@
     "@fontsource/roboto": "^5.0.8",
     "@gatsbyjs/reach-router": "^2.0.1",
     "@react-google-maps/api": "^2.19.3",
+    "@types/google.maps": "^3.55.3",
     "crypto-js": "^4.2.0",
     "gatsby": "^5.13.3",
     "gatsby-plugin-google-tagmanager": "^5.13.1",
@@ -56,13 +57,13 @@
   "devDependencies": {
     "@graphql-eslint/eslint-plugin": "^3.20.1",
     "@types/crypto-js": "^4.2.2",
-    "@types/node": "^20.11.17",
-    "@types/react": "^18.2.55",
+    "@types/node": "^20.11.20",
+    "@types/react": "^18.2.57",
     "@types/react-dom": "^18.2.19",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
     "prettier": "^3.2.5",
-    "sass": "^1.70.0",
+    "sass": "^1.71.1",
     "typescript": "^5.3.3"
   },
   "repository": {

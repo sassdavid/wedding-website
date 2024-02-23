@@ -27,7 +27,7 @@
     position: relative;
     margin-top: 3.5rem;
 
-    &:before {
+/*    &:before {
       content: '';
       display: block;
       position: absolute;
@@ -36,7 +36,7 @@
       width: _size(border-width);
       height: calc(3.5rem + 1px);
       background: _palette(border);
-    }
+    }*/
   }
 
   > :first-child {

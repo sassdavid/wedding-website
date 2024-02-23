@@ -46,21 +46,21 @@ const Proposal = props => {
       <h2 className="major">Lánykérés</h2>
 
       <div className="embedded-video" style={{ marginBottom: '2rem' }}>
-        {/*{props.isVideoVisible &&
-          <Video videoSrcURL="https://www.youtube.com/embed/2LCCz5mzig4?si=Wwde3cFJuyXKikl0&amp" videoTitle="Lánykérés 2023" />}*/}
+        {props.isVideoVisible &&
+          <Video videoSrcURL="https://www.youtube.com/embed/2LCCz5mzig4?si=Wwde3cFJuyXKikl0&amp" videoTitle="Lánykérés 2023" />}
       </div>
 
       <div {...handlers} className="image-gallery" style={{ marginBottom: '1rem' }}>
-        {/*{renderCurrentImage()}*/}
+        {renderCurrentImage()}
       </div>
 
-      {/*<div className="image-paginator">
+      <div className="image-paginator">
         <RiArrowLeftSLine className={currentPage === 1 ? 'disabled-paginator-icon' : 'paginator-icon'}
                           onClick={currentPage === 1 ? undefined : prevPage} />
         <span className="page-indicator">{currentPage} / {totalPages}</span>
         <RiArrowRightSLine className={currentPage === totalPages ? 'disabled-paginator-icon' : 'paginator-icon'}
                            onClick={currentPage === totalPages ? undefined : nextPage} />
-      </div>*/}
+      </div>
     </Card>
   );
 };
