@@ -8,6 +8,9 @@ const Venue = (props) => {
   return (
     <Card id="venue" style={props.style} onCloseArticle={props.onCloseArticle} articleClassName={props.articleClassName}>
       <h2 className="major">A helyszín</h2>
+      <h3>Barabás villa</h3>
+      <h5>1122 Budapest, Városmajor u. 44.</h5>
+
       <span className="image main">
         <StaticImage formats={['auto', 'webp']} src="../../static/assets/villa.jpg" alt="Venue" />
       </span>
