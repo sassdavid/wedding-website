@@ -315,7 +315,7 @@ const Rsvp = (props) => {
           <div className="field">
             <label id="messageLabel" htmlFor="messageTextarea">Bármilyen kérés/kérdés felénk</label>
             <textarea name="message" id="messageTextarea" rows="3" value={formData.message} onChange={handleChange} maxLength="1000"
-                      placeholder="Például itt tudod megadni, hogy szükséged van-e vegetáriánus, vegán, vagy laktóz/gluténmentes ételre." />
+                      placeholder="Például itt tudod megadni, hogy szükséged van-e vegetáriánus, vegán, vagy laktóz/gluténmentes ételre. Azt is itt jelezd, ha szívesen fogyasztanál édes süteményt a vacsora után (az esküvői tortán kívül)." />
           </div>
           <p style={{ marginTop: '1rem', fontSize: '0.7rem', fontFamily: 'inherit' }}>
             A beküldés gombra kattintva elfogadod az <a href="/privacy" target="_blank" rel="noopener noreferrer">adatkezelési tájékoztatót</a>.

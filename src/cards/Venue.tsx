@@ -10,6 +10,9 @@ const Venue = (props) => {
       <h2 className="major">A helyszín</h2>
       <h3>Barabás villa</h3>
       <h5>1122 Budapest, Városmajor u. 44.</h5>
+      <p style={{ fontWeight: '300', fontSize: '0.9rem' }}>
+        Szent János Kórház felől a Városmajor utcán egyenesen a 44. számig. Parkolási lehetőség a Városmajor utcában és a Maros utcában.
+      </p>
 
       <span className="image main">
         <StaticImage formats={['auto', 'webp']} src="../../static/assets/villa.jpg" alt="Venue" />

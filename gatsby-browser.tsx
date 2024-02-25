@@ -2,7 +2,8 @@ import * as React from 'react';
 import ReactDOM from 'react-dom/client';
 import type { GatsbyBrowser } from 'gatsby';
 import Layout from './src/components/layout';
-import '@fontsource/roboto';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
 import '@fontsource-variable/orbitron';
 
 export const replaceHydrateFunction = () => {
