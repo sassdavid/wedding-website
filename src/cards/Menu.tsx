@@ -9,10 +9,6 @@ const Menu = (props) => (
     <span className="image main">
       <StaticImage formats={['auto', 'webp']} src="../../static/assets/menu.png" alt="Menu" />
     </span>
-
-    <span className="image main">
-      <StaticImage formats={['auto', 'webp']} src="../../static/assets/drink.png" alt="Menu" />
-    </span>
   </Card>
 );
 

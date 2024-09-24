@@ -22,7 +22,7 @@ const Venue = (props) => {
 
       <h4 style={{ textAlign: 'center', paddingTop: '2rem' }}>
         <a
-          href="https://ul.waze.com/ul?preview_venue_id=12452315.124654223.5259128&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location"
+          href="https://waze.com/ul/hu2mw2b0d2"
           target="_blank" rel="noopener noreferrer">
           Vezess ide waze!
         </a>
